@@ -2,27 +2,26 @@ angular.module('2048Simulator')
 .factory('$TableroService',function(){
     var puntuacion = 0;
     
+    //Funcion que dispara elemento por elemento de una fila y realiza tres acciones (Fusionar, desplazar o no hacer nads)
     function dispararAlInicio(posicion, fila, ultimoIndiceFusionado, incrementarPuntuacion){
-      //posicion = 2
+      var cantidadFusiones = 0;
       for(var i = 0; i < posicion; i++){
-        if(fila[posicion - 1 - i] == fila[posicion - i] && ultimoIndiceFusionado != posicion-i-1){
+        if(fila[posicion - 1 - i] == fila[posicion - i] && ultimoIndiceFusionado != posicion-i-1 && cantidadFusiones < 1){
           //Fusionamos los elementos vecinos
           fila[posicion-i-1] = fila[posicion-i-1] + fila[posicion-i];
           fila[posicion-i] = 0;
           ultimoIndiceFusionado = posicion-i-1;
           if(incrementarPuntuacion)
             puntuacion += fila[posicion-i-1] + fila[posicion-i];
-          //break;
+          cantidadFusiones++;
         }
         else if(fila[posicion-i-1] == 0){
           //Desplazamos los elementos vecinos
           fila[posicion-i-1] = fila[posicion-i];
           fila[posicion-i] = 0;
         }
-        else{
-          //Salimos
+        else
           break;
-        }
       }
       return ultimoIndiceFusionado
     }

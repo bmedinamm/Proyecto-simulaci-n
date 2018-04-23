@@ -37,8 +37,12 @@
     border-radius: 0px !important;
     margin-top: 10px;
     text-align: left !important;
-    background: #656D78 !important;
+    background: #434A54 !important;
     color: #FFF !important;
+}
+
+.item-menu:hover{
+    background: #656D78 !important;
 }
 
 .subtitulo-item-menu{
