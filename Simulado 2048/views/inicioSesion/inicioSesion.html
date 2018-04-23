@@ -1,0 +1,26 @@
+<div class="IniciarSesion-body">
+	<div class="capa">
+		<div class="IniciarSesion-container">
+			<div class="div-white">
+				<!--<img class="InicioSesion-logo" src="assets/img/logo.png">
+				<center><h3 style="color: #fff;margin-top: 7px;">Codlibry</h3></center>-->
+				<img class="logo" src="assets/img/logo.png">
+				<center><h3 class="color-white">Taller Firebase</h3></center>
+				<center><p class="indicaciones">Por favor inicie sesion con su cuenta</p></center>
+
+				<!--Inicio del formulario para loguearse-->
+				<form id="formLogin" name="formLogin">
+					<input type="email" ng-required="true"  name="correo" class="inicioSesion-correo form-control" placeholder="Correo" ng-model = "correo">
+					<input type="password" ng-required="true"  name="contrasenia" class="inicioSesion-contrasenia form-control" placeholder="Contraseña" ng-model = "contrasenia">
+				</form>
+				<!--Fin del formulario para loguearse-->
+				<button ng-click="iniciarSesion(correo, contrasenia)"  type="button" class="btn btn-default btn-sm btn-login">Iniciar sesion
+				</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-show="mostrarCapaLoad" id="loadPrincipal" ng-show="true" class="load-iniciarSesion">
+	 <span us-spinner spinner-theme="iniciarSesion" spinner-key="spinner-3"></span>
+</div>
