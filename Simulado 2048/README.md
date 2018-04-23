@@ -1,4 +1,4 @@
-# Simulador del juevo 2048
+# Simulador 2048 Game
 
 **Breve reseña.**
 
@@ -9,11 +9,13 @@ deslizando y combinando las casillas del tablero.
 En su versión original, el tablero contiene 4x4 casillas las cuales, a su vez, contienen
 un número, de manera que las casillas tendrán distintos colores dependiendo del
 número que contengan.
+
 Inicialmente el tablero contendrá sólo dos casillas, con valor 2 o 4. A partir de ellas
 podremos hacer algún movimiento hacia alguna dirección.
 Mediante las teclas de dirección del teclado podemos mover las casillas, deslizándolas
 por la cuadrícula. De esta manera podemos mover las casillas deslizándolas hacia
 posiciones vacías.
+
 Si dos casillas de igual valor colisionan en un movimiento se combinan en una nueva
 casilla cuyo valor será la suma de los valores colisionados. Por ejemplo, si dos
 baldosas con el número 8 colisionan, se formará una con valor 16.
@@ -23,26 +25,17 @@ restante).
 Se acumula una puntuación, que comienza en cero y se incrementa al combinar dos
 casillas, con el valor de dicha combinación. 
 
-**Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
+## Cómo usarlo
 
-A basic Electron application needs just these files:
-
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
-
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start).
-
-## To Use
-
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+Para clonar y corres este proyecto usted necesita [Git](https://git-scm.com) y [Node.js](https://nodejs.org/en/download/) (el cual viene con [npm](http://npmjs.com)) instalado en su computadora. En su linea de comando realizar lo siguiente:
 
 ```bash
-# Clone this repository
-# Go into the repository
+# Clone este repositorio
+git clone https://github.com/bmedinamm/Proyecto-simulacion.git
+# Vaya al directorio creado
 cd electron-quick-start
-# Install dependencies
+# Instale todas las dependencias
 npm install
-# Run the app
+# Ejecute el aplicativo con
 npm start
 ```
