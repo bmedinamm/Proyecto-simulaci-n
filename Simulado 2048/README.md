@@ -3,7 +3,7 @@
 **Breve reseña.**
 
 El 2048 es un juego desarrollado en marzo de 2014 por el joven desarrollador italiano
-Gabriele Cirulli que alcanzó una gran popularidad.
+[Gabriele Cirulli](https://gabrielecirulli.com/) que alcanzó una gran popularidad.
 El objetivo del juego es conseguir una casilla cuyo valor sea 2048, de ahí su nombre,
 deslizando y combinando las casillas del tablero.
 En su versión original, el tablero contiene 4x4 casillas las cuales, a su vez, contienen
@@ -27,7 +27,7 @@ casillas, con el valor de dicha combinación.
 
 ## Cómo usarlo
 
-Para clonar y corres este proyecto usted necesita [Git](https://git-scm.com) y [Node.js](https://nodejs.org/en/download/) (el cual viene con [npm](http://npmjs.com)) instalado en su computadora. En su linea de comando realizar lo siguiente:
+Para clonar y correr este proyecto usted necesita [Git](https://git-scm.com) y [Node.js](https://nodejs.org/en/download/) (el cual viene con [npm](http://npmjs.com)) instalado en su computadora. En su linea de comando realizar lo siguiente:
 
 ```bash
 # Clone este repositorio
