@@ -1,6 +1,6 @@
 'use strict';
 angular.module('2048Simulator')
-.controller('principalCtrl', ['$scope','$TableroService',function($scope, $TableroService){
+.controller('principalCtrl', ['$scope','$JuegoService','$ExpectiMaxService', function($scope, $JuegoService, $ExpectiMaxService){
 	$scope.rejillaPrincipal = [];
 
 	$scope.limpiarTablero = function () {
@@ -10,32 +10,38 @@ angular.module('2048Simulator')
 
 	$scope.generarTablero = function() {
 		$scope.limpiarTablero();
-		$TableroService.agregarNumero($scope.rejillaPrincipal);
-		$TableroService.agregarNumero($scope.rejillaPrincipal);
+		$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
+		$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
 	}
 
 	//Funcion que mueve todo los elementos del tablero hacia la izquierda
 	$scope.moverEnDireccionIzquierda = function(){
-		$TableroService.moverEnDireccionIzquierda($scope.rejillaPrincipal, true);
-		$TableroService.agregarNumero($scope.rejillaPrincipal);
+		$JuegoService.moverEnDireccionIzquierda($scope.rejillaPrincipal, true, 'real');
+		$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
 	}
 
 	//Funcion que mueve todo los elementos del tablero hacia la derecha
 	$scope.moverEnDireccionDerecha = function(){
-		$TableroService.moverEnDireccionDerecha($scope.rejillaPrincipal, true);
-		$TableroService.agregarNumero($scope.rejillaPrincipal);
+		$JuegoService.moverEnDireccionDerecha($scope.rejillaPrincipal, true, 'real');
+		$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
 	}
 
 	//Funcion que mueve todo los elementos del tablero hacia arriba
 	$scope.moverEnDireccionArriba = function(){
-		$scope.rejillaPrincipal = $TableroService.moverEnDireccionArriba($scope.rejillaPrincipal, true);
-		$TableroService.agregarNumero($scope.rejillaPrincipal);
+		$scope.rejillaPrincipal = $JuegoService.moverEnDireccionArriba($scope.rejillaPrincipal, true, 'real');
+		$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
 	}
 
 	//Funcion que mueve todo los elementos del tablero hacia arriba
 	$scope.moverEnDireccionAbajo = function(){
-		$scope.rejillaPrincipal = $TableroService.moverEnDireccionAbajo($scope.rejillaPrincipal, true);
-		//$TableroService.agregarNumero($scope.rejillaPrincipal);
+		$scope.rejillaPrincipal = $JuegoService.moverEnDireccionAbajo($scope.rejillaPrincipal, true, 'real');
+		//$JuegoService.agregarNumero($scope.rejillaPrincipal);
+	}
+
+	//Funcion que envia el estado actual a expectiMax para obtener un movimiento adecuado
+	$scope.obtenerAyuda = function(){
+		console.log('Obteniendo movimiento');
+		console.log($ExpectiMaxService.expectiMax('juegoPrueba', $scope.rejillaPrincipal, 5, 10, 'MAX', true));
 	}
 
 }])

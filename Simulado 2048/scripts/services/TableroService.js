@@ -1,60 +1,7 @@
 angular.module('2048Simulator')
 .factory('$TableroService',function(){
-    var puntuacion = 0;
-    
-    //Funcion que dispara elemento por elemento de una fila y realiza tres acciones (Fusionar, desplazar o no hacer nads)
-    function dispararAlInicio(posicion, fila, ultimoIndiceFusionado, incrementarPuntuacion){
-      var cantidadFusiones = 0;
-      for(var i = 0; i < posicion; i++){
-        if(fila[posicion - 1 - i] == fila[posicion - i] && ultimoIndiceFusionado != posicion-i-1 && cantidadFusiones < 1){
-          //Fusionamos los elementos vecinos
-          fila[posicion-i-1] = fila[posicion-i-1] + fila[posicion-i];
-          fila[posicion-i] = 0;
-          ultimoIndiceFusionado = posicion-i-1;
-          if(incrementarPuntuacion)
-            puntuacion += fila[posicion-i-1] + fila[posicion-i];
-          cantidadFusiones++;
-        }
-        else if(fila[posicion-i-1] == 0){
-          //Desplazamos los elementos vecinos
-          fila[posicion-i-1] = fila[posicion-i];
-          fila[posicion-i] = 0;
-        }
-        else
-          break;
-      }
-      return ultimoIndiceFusionado
-    }
-
-    //Funcion que agrupa dos elementos consecutivos en una fila y los suma
-    function agruparElementos(fila, incrementarPuntuacion){
-      ultimoIndiceFusionado = -1;
-      for(var i = 1; i<fila.length; i++){
-        if(fila[i] != 0)
-          ultimoIndiceFusionado = dispararAlInicio(i, fila, ultimoIndiceFusionado, incrementarPuntuacion);
-      }
-
-    }
-
-    //Funcion que desplaza los elementos de una fila hacia la izquierda
-    function desplazarFilaEnDireccionIzquierda(fila, incrementarPuntuacion){
-      agruparElementos(fila,incrementarPuntuacion);
-      for(var ciclo = 0; ciclo<fila.length; ciclo++){
-        for(var i = 0; i<fila.length - 1; i++){
-          if(fila[i] == 0 && fila[i + 1] != 0){
-            fila[i] =  fila[i + 1];
-            fila[i + 1] = 0;
-          }
-        }
-      }
-    }
-
-    //Funcion base que se usara en todos los movimientos del tablero
-    function moverEnDireccionIzquierda(rejillaPrincipal, incrementarPuntuacion){
-      for(var fila = 0; fila<rejillaPrincipal.length; fila++){
-          desplazarFilaEnDireccionIzquierda(rejillaPrincipal[fila], incrementarPuntuacion)
-      }
-    }
+    var tablaMonotona = [[7,6,5,4],[6,5,4,3],[5,4,3,2],[4,3,2,1]];
+    var DIMENSION = 4;
 
     //Funcion que revierte una fila
     function revertirFila(fila){
@@ -66,70 +13,101 @@ angular.module('2048Simulator')
       }
     }
 
-    //Funcion que revierte una matriz
-    function revertirRejilla(rejillaPrincipal){
-      for(var i = 0; i<rejillaPrincipal.length; i++)
-        revertirFila(rejillaPrincipal[i]);
-    }
-
-    //Funcion que obtiene la trasnpuesta de una matriz
-    function obtenerTranspuestaRejilla(rejillaPrincipal){
-      var rejillaTemporal = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
-      for(var i = 0; i<rejillaPrincipal.length; i++){
-        for(var j = 0; j<rejillaPrincipal.length; j++){
-          rejillaTemporal[j][i] = rejillaPrincipal[i][j];
+    //Funcion que retorna la sumatoria ponderada entre el estado actual (tablero actual) del juego y una tabla monotona
+    function obtenerMonotonia(tablero){
+      var sumatoria = 0;
+      for(var i = 0; i<DIMENSION; i++){
+        for(var j = 0; j<DIMENSION; j++){
+          sumatoria += tablero[i][j]*tablaMonotona[i][j];
         }
       }
-      return rejillaTemporal;
+      return sumatoria;
+    }
+
+    //Funcion que obtiene la sumatoria de las medias ponderadas de las diferencias de todas las celdas con todos sus vecinos
+    function obtenerSimilitud(tablero){
+      var similitud = 0;
+      for(var i = 0; i<DIMENSION; i++){
+        for(var j = 0; j<DIMENSION; j++){
+          if(tablero[i][j] != 0){
+            var cantidadVecinos = 0
+            var sumatoria = 0
+            for(var k = -1; k<2; k++){
+              var x = i + k;
+              if(x >= 0 && x<DIMENSION){
+                for(var l = -1; l<2; l++){
+                  var y = j + l;
+                  if(y >= 0 && y<DIMENSION){
+                    if(tablero[x][y] > 0){
+                      cantidadVecinos += 1;
+                      sumatoria += Math.abs(tablero[i][j] - tablero[x][y]);
+                    }
+                  }
+                }
+              }
+            }
+            similitud += sumatoria/cantidadVecinos;
+          }
+        }
+      }
+      return similitud
+    }
+
+    //Funcion que retorna la cantidad de celdas vacias
+    function obtenerCantidadCeldasVacias(tablero){
+      var cantidad = 0;
+      for(var i = 0; i<DIMENSION; i++){
+        for(var j = 0; j<DIMENSION; j++){
+          if(tablero[i][j] == 0)
+            cantidad += 1;
+        }
+      }
+      return cantidad;
     }
     
     return{
-      //Funcion que agrega un 2 o un 4 en una celda vacia
-      agregarNumero: function(rejillaPrincipal){
-        var elementosCero = [];
-
+      //Funcion que obtiene la trasnpuesta de una matriz
+      obtenerTranspuestaRejilla: function(rejillaPrincipal){
+        var rejillaTemporal = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
         for(var i = 0; i<rejillaPrincipal.length; i++){
           for(var j = 0; j<rejillaPrincipal.length; j++){
-            if(rejillaPrincipal[i][j] == 0)
-              elementosCero.push([i,j]);
+            rejillaTemporal[j][i] = rejillaPrincipal[i][j];
           }
         }
-
-        if(elementosCero.length > 0){
-          var indice = elementosCero[Math.floor(Math.random() * (elementosCero.length - 0)) + 0];
-          var probabilidad = Math.floor(Math.random() * (101 - 0)) + 0;
-          if(probabilidad > 90)//Habra un 10% de probabilidad de agregar un 4
-            rejillaPrincipal[indice[0]][indice[1]] = 4;
-          else//Habra un 90% de agregar un 2
-            rejillaPrincipal[indice[0]][indice[1]] = 2;
-          
+        return rejillaTemporal;
+      },
+      //Funcion que revierte una matriz
+      revertirRejilla: function(rejillaPrincipal){
+        for(var i = 0; i<rejillaPrincipal.length; i++)
+          revertirFila(rejillaPrincipal[i]);
+      },
+      //Funcion matematica que asocia diferentes estrategias
+      aplicarHeuristica1: function(tablero, cantidadPuntos){
+        return cantidadPuntos + obtenerMonotonia(tablero) - obtenerSimilitud(tablero) + Math.log(cantidadPuntos)*obtenerCantidadCeldasVacias(tablero);
+      },
+      obtenerCantidadCeldasVacias: function(tablero){
+        return obtenerCantidadCeldasVacias(tablero);
+      },
+      //Funcion que obtiene una replica de un arreglo, pero sin las referenias de sus elementos
+      obtenerReplicaTablero: function(tablero){
+        var nuevoTablero = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+        for(var i = 0; i<DIMENSION; i++){
+          for(var j = 0; j<DIMENSION; j++){
+            nuevoTablero[i][j] = tablero[i][j];
+          }
         }
+        return nuevoTablero;
       },
-      //Funcion que mueve todo los elementos del tablero hacia la izquierda
-      moverEnDireccionIzquierda: function(rejillaPrincipal, incrementarPuntuacion) {
-        moverEnDireccionIzquierda(rejillaPrincipal, incrementarPuntuacion);
-      },
-      //Funcion que mueve todo los elementos del tablero hacia la derecha
-      moverEnDireccionDerecha: function(rejillaPrincipal, incrementarPuntuacion){
-        revertirRejilla(rejillaPrincipal);
-        moverEnDireccionIzquierda(rejillaPrincipal, incrementarPuntuacion);
-        revertirRejilla(rejillaPrincipal);
-      },
-      //Funcion que mueve todo los elementos del tablero hacia arriba
-      moverEnDireccionArriba: function(rejillaPrincipal, incrementarPuntuacion){
-        rejillaPrincipal = obtenerTranspuestaRejilla(rejillaPrincipal);
-        moverEnDireccionIzquierda(rejillaPrincipal, incrementarPuntuacion);
-        rejillaPrincipal = obtenerTranspuestaRejilla(rejillaPrincipal);
-        return rejillaPrincipal;
-      },
-      //Funcion que mueve todo los elementos del tablero hacia abajo
-      moverEnDireccionAbajo: function(rejillaPrincipal, incrementarPuntuacion){
-        rejillaPrincipal = obtenerTranspuestaRejilla(rejillaPrincipal);
-        revertirRejilla(rejillaPrincipal);
-        moverEnDireccionIzquierda(rejillaPrincipal, incrementarPuntuacion);
-        revertirRejilla(rejillaPrincipal);
-        rejillaPrincipal = obtenerTranspuestaRejilla(rejillaPrincipal);
-        return rejillaPrincipal;
+      //Funcion que compara si dos tableros son iguales
+      sonIguales: function(tablero1, tablero2){
+        var igualdad = true;
+        for(var i = 0; i<DIMENSION; i++){
+          for(var j = 0; j<DIMENSION; j++){
+            if(tablero1[i][j] != tablero2[i][j])
+              return false;
+          }
+        }
+        return igualdad;
       }
     }
 })
