@@ -3,6 +3,7 @@ angular.module('2048Simulator')
     var cantidadPuntosReal = 2;
     var cantidadPuntosPrueba = 2;
     var OBJETIVO = 2048;
+    var DIMENSION = 4;
 
     //Funcion que dispara elemento por elemento de una fila y realiza tres acciones (Fusionar, desplazar o no hacer nads)
     function dispararAlInicio(posicion, fila, ultimoIndiceFusionado, incrementarPuntuacion, tipoJuego){
@@ -59,12 +60,14 @@ angular.module('2048Simulator')
       for(var fila = 0; fila<rejillaPrincipal.length; fila++){
           desplazarFilaEnDireccionIzquierda(rejillaPrincipal[fila], incrementarPuntuacion, tipoJuego)
       }
+      return rejillaPrincipal;
     }
 
     function moverEnDireccionDerecha(rejillaPrincipal, incrementarPuntuacion, tipoJuego){
       $TableroService.revertirRejilla(rejillaPrincipal);
       moverEnDireccionIzquierda(rejillaPrincipal, incrementarPuntuacion, tipoJuego);
       $TableroService.revertirRejilla(rejillaPrincipal);
+      return rejillaPrincipal;
     }
 
     function moverEnDireccionArriba(rejillaPrincipal, incrementarPuntuacion, tipoJuego){
@@ -83,14 +86,38 @@ angular.module('2048Simulator')
       return rejillaPrincipal;
     }
 
+    //Funcion que verifica si de ha obtenido el valor goal = 2048
+    function haGanado(tablero){
+      for(var i = 0; i<DIMENSION; i++){
+        for(var j = 0; j<DIMENSION; j++){
+          if(tablero[i][j] == OBJETIVO)
+            return true;
+        }
+      }
+      return false;
+    }
+
+    //Funcion que devulve true si no hay celdas vacias o celdas consecutivas iguales
+    function estaInmovil(tablero){
+      var verificar = null;
+      for(var i = 0; i<DIMENSION; i++){
+        for(var j = 0; j<DIMENSION; j++){
+            verificar = (tablero[i][j] == 0) || (i>0 && tablero[i][j] == tablero[i-1][j]) || (i<4-1 && tablero[i][j] == tablero[i+1][j]) || (j>0 && tablero[i][j] == tablero[i][j-1]) || (j<4-1 && tablero[i][j] == tablero[i][j+1]);
+            if(verificar)
+              return false;
+          }
+        }
+        return true;
+    }
+
     return{
       //Funcion que mueve todo los elementos del tablero hacia la izquierda
       moverEnDireccionIzquierda: function(rejillaPrincipal, incrementarPuntuacion, tipoJuego) {
-        moverEnDireccionIzquierda(rejillaPrincipal, incrementarPuntuacion, tipoJuego);
+        return moverEnDireccionIzquierda(rejillaPrincipal, incrementarPuntuacion, tipoJuego);
       },
       //Funcion que mueve todo los elementos del tablero hacia la derecha
       moverEnDireccionDerecha: function(rejillaPrincipal, incrementarPuntuacion, tipoJuego){
-        moverEnDireccionDerecha(rejillaPrincipal, incrementarPuntuacion, tipoJuego);
+        return moverEnDireccionDerecha(rejillaPrincipal, incrementarPuntuacion, tipoJuego);
       },
       //Funcion que mueve todo los elementos del tablero hacia arriba
       moverEnDireccionArriba: function(rejillaPrincipal, incrementarPuntuacion, tipoJuego){
@@ -103,13 +130,13 @@ angular.module('2048Simulator')
       //Funcion que se encarga de realizar un movimiento de acuerdo a un codigo
       realizarMovimiento: function(codigo, tablero, incrementarPuntuacion, tipoJuego){
         if(codigo == 0)
-          moverEnDireccionIzquierda(tablero, incrementarPuntuacion, tipoJuego);
+          return moverEnDireccionIzquierda(tablero, incrementarPuntuacion, tipoJuego);
         else if(codigo == 1)
-          moverEnDireccionDerecha(tablero, incrementarPuntuacion, tipoJuego);
+          return moverEnDireccionDerecha(tablero, incrementarPuntuacion, tipoJuego);
         else if(codigo == 2)
-          moverEnDireccionArriba(tablero, incrementarPuntuacion, tipoJuego);
+          return moverEnDireccionArriba(tablero, incrementarPuntuacion, tipoJuego);
         else
-          moverEnDireccionAbajo(tablero, incrementarPuntuacion, tipoJuego);
+          return moverEnDireccionAbajo(tablero, incrementarPuntuacion, tipoJuego);
       },
       //Funcion que agrega un 2 o un 4 en una celda vacia
       agregarCelda: function(rejillaPrincipal, celda){
@@ -120,11 +147,10 @@ angular.module('2048Simulator')
               elementosCero.push([i,j]);
           }
         }
-
         if(elementosCero.length > 0){
           var indice = elementosCero[Math.floor(Math.random() * (elementosCero.length - 0)) + 0];
           if(celda == null){
-            var probabilidad = Math.floor(Math.random() * (101 - 0)) + 0;
+            var probabilidad = Math.floor(Math.r&&om() * (101 - 0)) + 0;
             if(probabilidad > 90)//Habra un 10% de probabilidad de agregar un 4
               rejillaPrincipal[indice[0]][indice[1]] = 4;
             else//Habra un 90% de agregar un 2
@@ -146,6 +172,13 @@ angular.module('2048Simulator')
           return cantidadPuntosReal;
         else
           return cantidadPuntosPrueba;
+      },
+      //Funcion que devulve True si el juego ha finalizado
+      haTerminado: function(rejillaPrincipal){
+        if(haGanado(rejillaPrincipal))
+          return true;
+        else
+         return estaInmovil(rejillaPrincipal);
       }
-    }
+  }
 })

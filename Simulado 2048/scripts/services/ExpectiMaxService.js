@@ -10,11 +10,41 @@ angular.module('2048Simulator')
     		return b;
     }
 
+    //Funcion que retorna el movimiento mas adecuado a realizar en base a las posibilidades de exito por cada una de las primeras 4 rutas
+    function obtenerMovimientoAdecuado(datosEsenciales){
+        var estadisticos = [0,0,0,0];
+        var valormax = 0;
+        var movimiento;
+        var sumatoria = 0;
+        //Buscamos el valor valor de los pesos de los primeros 4 caminos
+        for(var i = 0; i<datosEsenciales.length; i++){
+            sumatoria += datosEsenciales[i][1];
+            valormax = obtenerMaximo(valormax, datosEsenciales[i][1]);
+        }
+
+        //Obtenemos el indice o camino que contiene el valor mayor de los pesos
+        for(var i = 0; i<datosEsenciales.length; i++){
+            if(datosEsenciales[i][1] == valormax){
+                movimiento = datosEsenciales[i][0];
+                break;
+            }
+        }
+        //Calculamos los porcentajes de exito por cada uno de los primeros 4 caminos
+        for(var i = 0; i<datosEsenciales.length; i++){
+            if(datosEsenciales[i][1] != undefined)
+                estadisticos[i] = Math.round((datosEsenciales[i][1]/sumatoria)*100);
+        }
+
+        return {movimientoAdecuado: movimiento, estadisticos: estadisticos}
+    }
+
     //Funcion que retorna el movimiento mas adecuado a realizar, segun un estado dado
     function expectiMax(tipoJuego, tablero, nivel, puntuacion, tipoNodo, retornarMovimiento){
 		//Evaluamos el caso base (ultimo nivel de profundidad)
-        if(nivel == 0)
+        if(nivel == 0){
+            //console.log(tablero);
             return $TableroService.aplicarHeuristica1(tablero, $JuegoService.obtenerPuntuacion(tipoJuego));
+        }
         else{
             //Evaluamos si el nodo o estado a procesar es de tipo MAX
             if(tipoNodo == 'MAX'){
@@ -23,7 +53,7 @@ angular.module('2048Simulator')
                 for(var i = 0; i<DIMENSION; i++){
                     $JuegoService.establecerPuntuacion(puntuacion, tipoJuego);
                     var array1 = $TableroService.obtenerReplicaTablero(tablero);
-                    $JuegoService.realizarMovimiento(i, array1, true, tipoJuego);
+                    array1 = $JuegoService.realizarMovimiento(i, array1, true, tipoJuego);
                     //Podamos el nodo si el movimiento anterior produce el mismo tablero
                     if(!$TableroService.sonIguales(array1, tablero)){
                         var valorNodo = expectiMax(tipoJuego, array1, nivel - 1, $JuegoService.obtenerPuntuacion(tipoJuego), 'CHANGE', false);
@@ -33,13 +63,8 @@ angular.module('2048Simulator')
                     }
                 }
                 if(retornarMovimiento){
-                    var valormax = 0;
-                    for(var i = 0; i<nodosFinales.length; i++)
-                        valormax = obtenerMaximo(valormax, nodosFinales[i][1]);
-                    for(var i = 0; i<nodosFinales.length; i++){
-                        if(nodosFinales[i][1] == valormax)
-                            return nodosFinales[i][0];//Retornamos el mejor movimiento
-                    }
+                    //Retornamos un arreglo bidimensional de la forma [[0,x1],[1,x2],[2,x3],[3,x4]] donde el mayor de los x es el camino mas acertado
+                    return obtenerMovimientoAdecuado(nodosFinales);
                 }
                 else
                     return a;

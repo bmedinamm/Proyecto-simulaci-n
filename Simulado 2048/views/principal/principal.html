@@ -18,29 +18,29 @@
 			  Ayuda
 			  <small class="subtitulo-item-menu">Sobre movimiento</small>
 			</button><br>
-			<button type="button" class="btn btn-default btn-lg item-menu">
+			<button ng-click="jugarDeFormaAutomatica()" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-play" aria-hidden="true"></span> 
 			  Automatico
 			  <small class="subtitulo-item-menu">Modo inteligente</small>
 			</button><br>
 			<button ng-click="moverEnDireccionIzquierda()" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> 
-			  Izquierdo (0)
+			  Izquierdo
 			  <small class="subtitulo-item-menu">(Movimiento)</small>
 			</button><br>
 			<button ng-click="moverEnDireccionDerecha()" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> 
-			  Derecho (1)
+			  Derecho
 			  <small class="subtitulo-item-menu">(Movimiento)</small>
 			</button><br>
 			<button ng-click="moverEnDireccionArriba()" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> 
-			  Arriba (2)
+			  Arriba
 			  <small class="subtitulo-item-menu">(Movimiento)</small>
 			</button><br>
 			<button ng-click="moverEnDireccionAbajo()" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> 
-			  Abajo (3)
+			  Abajo
 			  <small class="subtitulo-item-menu">(Movimiento)</small>
 			</button><br>
 		</div>
@@ -70,58 +70,58 @@
 				<div class="col-md-6 rejilla-2048">
 					<div class="row">
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[0][0]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[0][0]>100 && rejillaPrincipal[0][0]<1000}, {'font-19': rejillaPrincipal[0][0]>=1000}]" ng-model="rejillaPrincipal[0][0]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[0][1]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[0][1]>100 && rejillaPrincipal[0][1]<1000}, {'font-19': rejillaPrincipal[0][1]>=1000}]" ng-model="rejillaPrincipal[0][1]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[0][2]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[0][2]>100 && rejillaPrincipal[0][2]<1000}, {'font-19': rejillaPrincipal[0][2]>=1000}]" ng-model="rejillaPrincipal[0][2]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[0][3]"  type="number" class="input-rejilla">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[1][0]"  type="number" class="input-rejilla">
-						</div>
-						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[1][1]"  type="number" class="input-rejilla">
-						</div>
-						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[1][2]"  type="number" class="input-rejilla">
-						</div>
-						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[1][3]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[0][3]>100 && rejillaPrincipal[0][3]<1000}, {'font-19': rejillaPrincipal[0][3]>=1000}]" ng-model="rejillaPrincipal[0][3]"  type="number" class="input-rejilla">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[2][0]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[1][0]>100 && rejillaPrincipal[1][0]<1000}, {'font-19': rejillaPrincipal[1][0]>=1000}]" ng-model="rejillaPrincipal[1][0]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[2][1]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[1][1]>100 && rejillaPrincipal[1][1]<1000}, {'font-19': rejillaPrincipal[1][1]>=1000}]" ng-model="rejillaPrincipal[1][1]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[2][2]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[1][2]>100 && rejillaPrincipal[1][2]<1000}, {'font-19': rejillaPrincipal[1][2]>=1000}]" ng-model="rejillaPrincipal[1][2]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[2][3]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[1][3]>100 && rejillaPrincipal[1][3]<1000}, {'font-19': rejillaPrincipal[1][3]>=1000}]" ng-model="rejillaPrincipal[1][3]"  type="number" class="input-rejilla">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[3][0]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[2][0]>100 && rejillaPrincipal[2][0]<1000}, {'font-19': rejillaPrincipal[2][0]>=1000}]" ng-model="rejillaPrincipal[2][0]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[3][1]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[2][1]>100 && rejillaPrincipal[2][1]<1000}, {'font-19': rejillaPrincipal[2][1]>=1000}]" ng-model="rejillaPrincipal[2][1]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[3][2]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[2][2]>100 && rejillaPrincipal[2][2]<1000}, {'font-19': rejillaPrincipal[2][2]>=1000}]" ng-model="rejillaPrincipal[2][2]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-model="rejillaPrincipal[3][3]"  type="number" class="input-rejilla">
+							<input ng-class="[{'font-25': rejillaPrincipal[2][3]>100 && rejillaPrincipal[2][3]<1000}, {'font-19': rejillaPrincipal[2][3]>=1000}]" ng-model="rejillaPrincipal[2][3]"  type="number" class="input-rejilla">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<input ng-class="[{'font-25': rejillaPrincipal[3][0]>100 && rejillaPrincipal[3][0]<1000}, {'font-19': rejillaPrincipal[3][0]>=1000}]" ng-model="rejillaPrincipal[3][0]"  type="number" class="input-rejilla">
+						</div>
+						<div class="col-md-3">
+							<input ng-class="[{'font-25': rejillaPrincipal[3][1]>100 && rejillaPrincipal[3][1]<1000}, {'font-19': rejillaPrincipal[3][1]>=1000}]" ng-model="rejillaPrincipal[3][1]"  type="number" class="input-rejilla">
+						</div>
+						<div class="col-md-3">
+							<input ng-class="[{'font-25': rejillaPrincipal[3][2]>100 && rejillaPrincipal[3][2]<1000}, {'font-19': rejillaPrincipal[3][2]>=1000}]" ng-model="rejillaPrincipal[3][2]"  type="number" class="input-rejilla">
+						</div>
+						<div class="col-md-3">
+							<input ng-class="[{'font-25': rejillaPrincipal[3][3]>100 && rejillaPrincipal[3][3]<1000}, {'font-19': rejillaPrincipal[3][3]>=1000}]" ng-model="rejillaPrincipal[3][3]"  type="number" class="input-rejilla">
 						</div>
 					</div>
 				</div>
@@ -136,25 +136,25 @@
 							<div class="col-md-3">
 								<div class="div-movimientos">
 								  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> 
-								  80% éxito
+								  {{movimiento.estadisticos[0]}}% éxito
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div div class="div-movimientos">
 								  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> 
-								  10% éxito
+								  {{movimiento.estadisticos[1]}}% éxito
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div div class="div-movimientos">
 								  <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> 
-								  5% éxito
+								  {{movimiento.estadisticos[2]}}% éxito
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div div class="div-movimientos">
 								  <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> 
-								  5% éxito
+								  {{movimiento.estadisticos[3]}}% éxito
 								</div>
 							</div>
 						</div>
