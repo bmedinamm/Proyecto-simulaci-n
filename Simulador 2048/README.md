@@ -33,7 +33,7 @@ Para clonar y correr este proyecto usted necesita [Git](https://git-scm.com) y [
 # Clone este repositorio
 git clone https://github.com/bmedinamm/Proyecto-simulacion.git
 # Vaya al directorio creado
-cd electron-quick-start
+cd Simulador 2048
 # Instale todas las dependencias
 npm install
 # Ejecute el aplicativo con

@@ -13,7 +13,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1100, height: 750})
+  mainWindow = new BrowserWindow({width: 1100, height: 750, resizable: false})
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -23,7 +23,7 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -69,7 +69,7 @@ const template = [
         role: 'reload'
       },
       {
-        role: 'toggledevtools'
+        //role: 'toggledevtools'
       }
     ]
   }
@@ -113,3 +113,7 @@ if (process.platform === 'darwin') {
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
+
+/*electron.app.on('browser-window-created',function(e,window) {
+      window.setMenu(null);
+});*/
