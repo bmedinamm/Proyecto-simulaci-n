@@ -30,7 +30,7 @@ angular.module('2048Simulator', ['ui.router', 'ngAnimate', 'toastr', 'chart.js',
 		angular.extend(toastrConfig, {
 			autoDismiss: false,
 			containerId: 'toast-container',
-			maxOpened: 3000,    
+			maxOpened: 4000,    
 			newestOnTop: true,
 			positionClass: 'toast-top-right',
 			preventDuplicates: false,

@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<br>
+			<img class="logo-unah" src="assets/img/unah.png">
 			<button ng-click="abrirVista('principal', true)" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Inicio
 			</button><br>
@@ -20,28 +20,18 @@
 			</button><br>
 			<button ng-disabled="procesando" ng-click="jugarDeFormaAutomatica()" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-play" aria-hidden="true"></span> 
-			  Automatico
+			  Expecti Max
 			  <small class="subtitulo-item-menu">Modo inteligente</small>
 			</button><br>
-			<button ng-disabled="procesando" ng-click="moverEnDireccionIzquierda()" type="button" class="btn btn-default btn-lg item-menu">
-			  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> 
-			  Izquierdo
-			  <small class="subtitulo-item-menu">(Movimiento)</small>
+			<button ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
+			  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+			  Humano
+			  <small class="subtitulo-item-menu">Modo inteligente</small>
 			</button><br>
-			<button ng-disabled="procesando" ng-click="moverEnDireccionDerecha()" type="button" class="btn btn-default btn-lg item-menu">
-			  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> 
-			  Derecho
-			  <small class="subtitulo-item-menu">(Movimiento)</small>
-			</button><br>
-			<button ng-disabled="procesando" ng-click="moverEnDireccionArriba()" type="button" class="btn btn-default btn-lg item-menu">
-			  <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> 
-			  Arriba
-			  <small class="subtitulo-item-menu">(Movimiento)</small>
-			</button><br>
-			<button ng-disabled="procesando" ng-click="moverEnDireccionAbajo()" type="button" class="btn btn-default btn-lg item-menu">
-			  <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> 
-			  Abajo
-			  <small class="subtitulo-item-menu">(Movimiento)</small>
+			<button ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
+			  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+			  Configuración
+			  <small class="subtitulo-item-menu">Cambiar propiedades</small>
 			</button><br>
 		</div>
 		<div class="col-md-8" ui-view>
@@ -74,58 +64,58 @@
 				<div class="col-md-6 rejilla-2048">
 					<div class="row">
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(0,0, rejillaPrincipal[0][0])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[0][0]>100 && rejillaPrincipal[0][0]<1000}, {'font-19': rejillaPrincipal[0][0]>=1000}]" ng-model="rejillaPrincipal[0][0]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(0,0, rejillaPrincipal[0][0])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[0][0]>100 && rejillaPrincipal[0][0]<1000}, {'font-19': rejillaPrincipal[0][0]>=1000}, {'value-2': rejillaPrincipal[0][0] == 2},{'value-4': rejillaPrincipal[0][0] == 4},{'value-8': rejillaPrincipal[0][0] == 8},{'value-16': rejillaPrincipal[0][0] == 16},{'value-32': rejillaPrincipal[0][0] == 32},{'value-64': rejillaPrincipal[0][0] == 64},{'value-128': rejillaPrincipal[0][0] == 128},{'value-256': rejillaPrincipal[0][0] == 256},{'value-512': rejillaPrincipal[0][0] == 512},{'value-1024': rejillaPrincipal[0][0] == 1024},{'value-2048': rejillaPrincipal[0][0] == 2048}]" ng-model="rejillaPrincipal[0][0]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(0,1, rejillaPrincipal[0][1])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[0][1]>100 && rejillaPrincipal[0][1]<1000}, {'font-19': rejillaPrincipal[0][1]>=1000}]" ng-model="rejillaPrincipal[0][1]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(0,1, rejillaPrincipal[0][1])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[0][1]>100 && rejillaPrincipal[0][1]<1000}, {'font-19': rejillaPrincipal[0][1]>=1000}, {'value-2': rejillaPrincipal[0][1] == 2},{'value-4': rejillaPrincipal[0][1] == 4},{'value-8': rejillaPrincipal[0][1] == 8},{'value-16': rejillaPrincipal[0][1] == 16},{'value-32': rejillaPrincipal[0][1] == 32},{'value-64': rejillaPrincipal[0][1] == 64},{'value-128': rejillaPrincipal[0][1] == 128},{'value-256': rejillaPrincipal[0][1] == 256},{'value-512': rejillaPrincipal[0][1] == 512},{'value-1024': rejillaPrincipal[0][1] == 1024},{'value-2048': rejillaPrincipal[0][1] == 2048}]" ng-model="rejillaPrincipal[0][1]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(0,2, rejillaPrincipal[0][2])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[0][2]>100 && rejillaPrincipal[0][2]<1000}, {'font-19': rejillaPrincipal[0][2]>=1000}]" ng-model="rejillaPrincipal[0][2]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(0,2, rejillaPrincipal[0][2])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[0][2]>100 && rejillaPrincipal[0][2]<1000}, {'font-19': rejillaPrincipal[0][2]>=1000}, {'value-2': rejillaPrincipal[0][2] == 2},{'value-4': rejillaPrincipal[0][2] == 4},{'value-8': rejillaPrincipal[0][2] == 8},{'value-16': rejillaPrincipal[0][2] == 16},{'value-32': rejillaPrincipal[0][2] == 32},{'value-64': rejillaPrincipal[0][2] == 64},{'value-128': rejillaPrincipal[0][2] == 128},{'value-256': rejillaPrincipal[0][2] == 256},{'value-512': rejillaPrincipal[0][2] == 512},{'value-1024': rejillaPrincipal[0][2] == 1024},{'value-2048': rejillaPrincipal[0][2] == 2048}]" ng-model="rejillaPrincipal[0][2]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(0,3, rejillaPrincipal[0][3])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[0][3]>100 && rejillaPrincipal[0][3]<1000}, {'font-19': rejillaPrincipal[0][3]>=1000}]" ng-model="rejillaPrincipal[0][3]"  type="number" class="input-rejilla">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3">
-							<input ng-keyup="validarCelda(1,0, rejillaPrincipal[1][0])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[1][0]>100 && rejillaPrincipal[1][0]<1000}, {'font-19': rejillaPrincipal[1][0]>=1000}]" ng-model="rejillaPrincipal[1][0]"  type="number" class="input-rejilla">
-						</div>
-						<div class="col-md-3">
-							<input ng-keyup="validarCelda(1,1, rejillaPrincipal[1][1])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[1][1]>100 && rejillaPrincipal[1][1]<1000}, {'font-19': rejillaPrincipal[1][1]>=1000}]" ng-model="rejillaPrincipal[1][1]"  type="number" class="input-rejilla">
-						</div>
-						<div class="col-md-3">
-							<input ng-keyup="validarCelda(1,2, rejillaPrincipal[1][2])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[1][2]>100 && rejillaPrincipal[1][2]<1000}, {'font-19': rejillaPrincipal[1][2]>=1000}]" ng-model="rejillaPrincipal[1][2]"  type="number" class="input-rejilla">
-						</div>
-						<div class="col-md-3">
-							<input ng-keyup="validarCelda(1,3, rejillaPrincipal[1][3])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[1][3]>100 && rejillaPrincipal[1][3]<1000}, {'font-19': rejillaPrincipal[1][3]>=1000}]" ng-model="rejillaPrincipal[1][3]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(0,3, rejillaPrincipal[0][3])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[0][3]>100 && rejillaPrincipal[0][3]<1000}, {'font-19': rejillaPrincipal[0][3]>=1000}, {'value-2': rejillaPrincipal[0][3] == 2},{'value-4': rejillaPrincipal[0][3] == 4},{'value-8': rejillaPrincipal[0][3] == 8},{'value-16': rejillaPrincipal[0][3] == 16},{'value-32': rejillaPrincipal[0][3] == 32},{'value-64': rejillaPrincipal[0][3] == 64},{'value-128': rejillaPrincipal[0][3] == 128},{'value-256': rejillaPrincipal[0][3] == 256},{'value-512': rejillaPrincipal[0][3] == 512},{'value-1024': rejillaPrincipal[0][3] == 1024},{'value-2048': rejillaPrincipal[0][3] == 2048}]" ng-model="rejillaPrincipal[0][3]"  type="number" class="input-rejilla">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(2,0, rejillaPrincipal[2][0])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[2][0]>100 && rejillaPrincipal[2][0]<1000}, {'font-19': rejillaPrincipal[2][0]>=1000}]" ng-model="rejillaPrincipal[2][0]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(1,0, rejillaPrincipal[1][0])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[1][0]>100 && rejillaPrincipal[1][0]<1000}, {'font-19': rejillaPrincipal[1][0]>=1000}, {'value-2': rejillaPrincipal[1][0] == 2},{'value-4': rejillaPrincipal[1][0] == 4},{'value-8': rejillaPrincipal[1][0] == 8},{'value-16': rejillaPrincipal[1][0] == 16},{'value-32': rejillaPrincipal[1][0] == 32},{'value-64': rejillaPrincipal[1][0] == 64},{'value-128': rejillaPrincipal[1][0] == 128},{'value-256': rejillaPrincipal[1][0] == 256},{'value-512': rejillaPrincipal[1][0] == 512},{'value-1024': rejillaPrincipal[1][0] == 1024},{'value-2048': rejillaPrincipal[1][0] == 2048}]" ng-model="rejillaPrincipal[1][0]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(2,1, rejillaPrincipal[2][1])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[2][1]>100 && rejillaPrincipal[2][1]<1000}, {'font-19': rejillaPrincipal[2][1]>=1000}]" ng-model="rejillaPrincipal[2][1]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(1,1, rejillaPrincipal[1][1])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[1][1]>100 && rejillaPrincipal[1][1]<1000}, {'font-19': rejillaPrincipal[1][1]>=1000}, {'value-2': rejillaPrincipal[1][1] == 2},{'value-4': rejillaPrincipal[1][1] == 4},{'value-8': rejillaPrincipal[1][1] == 8},{'value-16': rejillaPrincipal[1][1] == 16},{'value-32': rejillaPrincipal[1][1] == 32},{'value-64': rejillaPrincipal[1][1] == 64},{'value-128': rejillaPrincipal[1][1] == 128},{'value-256': rejillaPrincipal[1][1] == 256},{'value-512': rejillaPrincipal[1][1] == 512},{'value-1024': rejillaPrincipal[1][1] == 1024},{'value-2048': rejillaPrincipal[1][1] == 2048}]" ng-model="rejillaPrincipal[1][1]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(2,2, rejillaPrincipal[2][2])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[2][2]>100 && rejillaPrincipal[2][2]<1000}, {'font-19': rejillaPrincipal[2][2]>=1000}]" ng-model="rejillaPrincipal[2][2]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(1,2, rejillaPrincipal[1][2])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[1][2]>100 && rejillaPrincipal[1][2]<1000}, {'font-19': rejillaPrincipal[1][2]>=1000}, {'value-2': rejillaPrincipal[1][2] == 2},{'value-4': rejillaPrincipal[1][2] == 4},{'value-8': rejillaPrincipal[1][2] == 8},{'value-16': rejillaPrincipal[1][2] == 16},{'value-32': rejillaPrincipal[1][2] == 32},{'value-64': rejillaPrincipal[1][2] == 64},{'value-128': rejillaPrincipal[1][2] == 128},{'value-256': rejillaPrincipal[1][2] == 256},{'value-512': rejillaPrincipal[1][2] == 512},{'value-1024': rejillaPrincipal[1][2] == 1024},{'value-2048': rejillaPrincipal[1][2] == 2048}]" ng-model="rejillaPrincipal[1][2]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(2,3, rejillaPrincipal[2][3])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[2][3]>100 && rejillaPrincipal[2][3]<1000}, {'font-19': rejillaPrincipal[2][3]>=1000}]" ng-model="rejillaPrincipal[2][3]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(1,3, rejillaPrincipal[1][3])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[1][3]>100 && rejillaPrincipal[1][3]<1000}, {'font-19': rejillaPrincipal[1][3]>=1000}, {'value-2': rejillaPrincipal[1][3] == 2},{'value-4': rejillaPrincipal[1][3] == 4},{'value-8': rejillaPrincipal[1][3] == 8},{'value-16': rejillaPrincipal[1][3] == 16},{'value-32': rejillaPrincipal[1][3] == 32},{'value-64': rejillaPrincipal[1][3] == 64},{'value-128': rejillaPrincipal[1][3] == 128},{'value-256': rejillaPrincipal[1][3] == 256},{'value-512': rejillaPrincipal[1][3] == 512},{'value-1024': rejillaPrincipal[1][3] == 1024},{'value-2048': rejillaPrincipal[1][3] == 2048}]" ng-model="rejillaPrincipal[1][3]"  type="number" class="input-rejilla">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(3,0, rejillaPrincipal[3][0])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[3][0]>100 && rejillaPrincipal[3][0]<1000}, {'font-19': rejillaPrincipal[3][0]>=1000}]" ng-model="rejillaPrincipal[3][0]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(2,0, rejillaPrincipal[2][0])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[2][0]>100 && rejillaPrincipal[2][0]<1000}, {'font-19': rejillaPrincipal[2][0]>=1000}, {'value-2': rejillaPrincipal[2][0] == 2},{'value-4': rejillaPrincipal[2][0] == 4},{'value-8': rejillaPrincipal[2][0] == 8},{'value-16': rejillaPrincipal[2][0] == 16},{'value-32': rejillaPrincipal[2][0] == 32},{'value-64': rejillaPrincipal[2][0] == 64},{'value-128': rejillaPrincipal[2][0] == 128},{'value-256': rejillaPrincipal[2][0] == 256},{'value-512': rejillaPrincipal[2][0] == 512},{'value-1024': rejillaPrincipal[2][0] == 1024},{'value-2048': rejillaPrincipal[2][0] == 2048}]" ng-model="rejillaPrincipal[2][0]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(3,1, rejillaPrincipal[3][1])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[3][1]>100 && rejillaPrincipal[3][1]<1000}, {'font-19': rejillaPrincipal[3][1]>=1000}]" ng-model="rejillaPrincipal[3][1]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(2,1, rejillaPrincipal[2][1])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[2][1]>100 && rejillaPrincipal[2][1]<1000}, {'font-19': rejillaPrincipal[2][1]>=1000}, {'value-2': rejillaPrincipal[2][1] == 2},{'value-4': rejillaPrincipal[2][1] == 4},{'value-8': rejillaPrincipal[2][1] == 8},{'value-16': rejillaPrincipal[2][1] == 16},{'value-32': rejillaPrincipal[2][1] == 32},{'value-64': rejillaPrincipal[2][1] == 64},{'value-128': rejillaPrincipal[2][1] == 128},{'value-256': rejillaPrincipal[2][1] == 256},{'value-512': rejillaPrincipal[2][1] == 512},{'value-1024': rejillaPrincipal[2][1] == 1024},{'value-2048': rejillaPrincipal[2][1] == 2048}]" ng-model="rejillaPrincipal[2][1]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(3,2, rejillaPrincipal[3][2])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[3][2]>100 && rejillaPrincipal[3][2]<1000}, {'font-19': rejillaPrincipal[3][2]>=1000}]" ng-model="rejillaPrincipal[3][2]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(2,2, rejillaPrincipal[2][2])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[2][2]>100 && rejillaPrincipal[2][2]<1000}, {'font-19': rejillaPrincipal[2][2]>=1000}, {'value-2': rejillaPrincipal[2][2] == 2},{'value-4': rejillaPrincipal[2][2] == 4},{'value-8': rejillaPrincipal[2][2] == 8},{'value-16': rejillaPrincipal[2][2] == 16},{'value-32': rejillaPrincipal[2][2] == 32},{'value-64': rejillaPrincipal[2][2] == 64},{'value-128': rejillaPrincipal[2][2] == 128},{'value-256': rejillaPrincipal[2][2] == 256},{'value-512': rejillaPrincipal[2][2] == 512},{'value-1024': rejillaPrincipal[2][2] == 1024},{'value-2048': rejillaPrincipal[2][2] == 2048}]" ng-model="rejillaPrincipal[2][2]"  type="number" class="input-rejilla">
 						</div>
 						<div class="col-md-3">
-							<input ng-keyup="validarCelda(3,3, rejillaPrincipal[3][3])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[3][3]>100 && rejillaPrincipal[3][3]<1000}, {'font-19': rejillaPrincipal[3][3]>=1000}]" ng-model="rejillaPrincipal[3][3]"  type="number" class="input-rejilla">
+							<input ng-keyup="validarCelda(2,3, rejillaPrincipal[2][3])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[2][3]>100 && rejillaPrincipal[2][3]<1000}, {'font-19': rejillaPrincipal[2][3]>=1000}, {'value-2': rejillaPrincipal[2][3] == 2},{'value-4': rejillaPrincipal[2][3] == 4},{'value-8': rejillaPrincipal[2][3] == 8},{'value-16': rejillaPrincipal[2][3] == 16},{'value-32': rejillaPrincipal[2][3] == 32},{'value-64': rejillaPrincipal[2][3] == 64},{'value-128': rejillaPrincipal[2][3] == 128},{'value-256': rejillaPrincipal[2][3] == 256},{'value-512': rejillaPrincipal[2][3] == 512},{'value-1024': rejillaPrincipal[2][3] == 1024},{'value-2048': rejillaPrincipal[2][3] == 2048}]" ng-model="rejillaPrincipal[2][3]"  type="number" class="input-rejilla">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<input ng-keyup="validarCelda(3,0, rejillaPrincipal[3][0])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[3][0]>100 && rejillaPrincipal[3][0]<1000}, {'font-19': rejillaPrincipal[3][0]>=1000}, {'value-2': rejillaPrincipal[3][0] == 2},{'value-4': rejillaPrincipal[3][0] == 4},{'value-8': rejillaPrincipal[3][0] == 8},{'value-16': rejillaPrincipal[3][0] == 16},{'value-32': rejillaPrincipal[3][0] == 32},{'value-64': rejillaPrincipal[3][0] == 64},{'value-128': rejillaPrincipal[3][0] == 128},{'value-256': rejillaPrincipal[3][0] == 256},{'value-512': rejillaPrincipal[3][0] == 512},{'value-1024': rejillaPrincipal[3][0] == 1024},{'value-2048': rejillaPrincipal[3][0] == 2048}]" ng-model="rejillaPrincipal[3][0]"  type="number" class="input-rejilla">
+						</div>
+						<div class="col-md-3">
+							<input ng-keyup="validarCelda(3,1, rejillaPrincipal[3][1])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[3][1]>100 && rejillaPrincipal[3][1]<1000}, {'font-19': rejillaPrincipal[3][1]>=1000}, {'value-2': rejillaPrincipal[3][1] == 2},{'value-4': rejillaPrincipal[3][1] == 4},{'value-8': rejillaPrincipal[3][1] == 8},{'value-16': rejillaPrincipal[3][1] == 16},{'value-32': rejillaPrincipal[3][1] == 32},{'value-64': rejillaPrincipal[3][1] == 64},{'value-128': rejillaPrincipal[3][1] == 128},{'value-256': rejillaPrincipal[3][1] == 256},{'value-512': rejillaPrincipal[3][1] == 512},{'value-1024': rejillaPrincipal[3][1] == 1024},{'value-2048': rejillaPrincipal[3][1] == 2048}]" ng-model="rejillaPrincipal[3][1]"  type="number" class="input-rejilla">
+						</div>
+						<div class="col-md-3">
+							<input ng-keyup="validarCelda(3,2, rejillaPrincipal[3][2])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[3][2]>100 && rejillaPrincipal[3][2]<1000}, {'font-19': rejillaPrincipal[3][2]>=1000}, {'value-2': rejillaPrincipal[3][2] == 2},{'value-4': rejillaPrincipal[3][2] == 4},{'value-8': rejillaPrincipal[3][2] == 8},{'value-16': rejillaPrincipal[3][2] == 16},{'value-32': rejillaPrincipal[3][2] == 32},{'value-64': rejillaPrincipal[3][2] == 64},{'value-128': rejillaPrincipal[3][2] == 128},{'value-256': rejillaPrincipal[3][2] == 256},{'value-512': rejillaPrincipal[3][2] == 512},{'value-1024': rejillaPrincipal[3][2] == 1024},{'value-2048': rejillaPrincipal[3][2] == 2048}]" ng-model="rejillaPrincipal[3][2]"  type="number" class="input-rejilla">
+						</div>
+						<div class="col-md-3">
+							<input ng-keyup="validarCelda(3,3, rejillaPrincipal[3][3])" ng-disabled="procesando" ng-class="[{'font-25': rejillaPrincipal[3][3]>100 && rejillaPrincipal[3][3]<1000}, {'font-19': rejillaPrincipal[3][3]>=1000}, {'value-2': rejillaPrincipal[3][3] == 2},{'value-4': rejillaPrincipal[3][3] == 4},{'value-8': rejillaPrincipal[3][3] == 8},{'value-16': rejillaPrincipal[3][3] == 16},{'value-32': rejillaPrincipal[3][3] == 32},{'value-64': rejillaPrincipal[3][3] == 64},{'value-128': rejillaPrincipal[3][3] == 128},{'value-256': rejillaPrincipal[3][3] == 256},{'value-512': rejillaPrincipal[3][3] == 512},{'value-1024': rejillaPrincipal[3][3] == 1024},{'value-2048': rejillaPrincipal[3][3] == 2048}]" ng-model="rejillaPrincipal[3][3]"  type="number" class="input-rejilla">
 						</div>
 					</div>
 				</div>
@@ -146,28 +136,27 @@
 						<hr>
 						<div class="row">
 							<div class="col-md-3">
-								<div class="div-movimientos" ng-class="[{'movimientoAdecuado': movimiento.movimientoAdecuado == 0}]">
-								  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> 
-								  {{movimiento.estadisticos[0]}}% éxito
-								</div>
+								<button ng-disabled="procesando" ng-click="moverEnDireccionIzquierda()" class="div-movimientos" ng-class="[{'movimientoAdecuado': movimiento.movimientoAdecuado == 0}]" type="button" class="btn btn-lg">
+								  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> {{movimiento.estadisticos[0]}}% éxito
+								</button>
 							</div>
 							<div class="col-md-3">
-								<div div class="div-movimientos" ng-class="[{'movimientoAdecuado': movimiento.movimientoAdecuado == 1}]">
+								<button ng-disabled="procesando" ng-click="moverEnDireccionDerecha()" class="div-movimientos" type="button" class="btn btn-lg" ng-class="[{'movimientoAdecuado': movimiento.movimientoAdecuado == 1}]">
 								  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> 
 								  {{movimiento.estadisticos[1]}}% éxito
-								</div>
+								</button>
 							</div>
 							<div class="col-md-3">
-								<div div class="div-movimientos" ng-class="[{'movimientoAdecuado': movimiento.movimientoAdecuado == 2}]">
+								<button ng-disabled="procesando" ng-click="moverEnDireccionArriba()" class="div-movimientos" type="button" class="btn btn-lg" ng-class="[{'movimientoAdecuado': movimiento.movimientoAdecuado == 2}]">
 								  <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> 
 								  {{movimiento.estadisticos[2]}}% éxito
-								</div>
+								</button>
 							</div>
 							<div class="col-md-3">
-								<div div class="div-movimientos" ng-class="[{'movimientoAdecuado': movimiento.movimientoAdecuado == 3}]">
+								<button ng-disabled="procesando" ng-click="moverEnDireccionAbajo()" class="div-movimientos" type="button" class="btn btn-lg" ng-class="[{'movimientoAdecuado': movimiento.movimientoAdecuado == 3}]">
 								  <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> 
 								  {{movimiento.estadisticos[3]}}% éxito
-								</div>
+								</button>
 							</div>
 						</div>
 					</div>

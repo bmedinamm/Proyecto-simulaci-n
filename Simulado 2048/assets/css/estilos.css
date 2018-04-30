@@ -6,7 +6,17 @@
     text-align: center;
     background: #eee4da;
     margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: #675f58;
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
 
 .item-estadisticos{
     background: #FFF;
@@ -50,12 +60,13 @@
 }
 
 .logo-unah{
-    width: 150px;
-    margin-top: 20px;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .item-menu{
-    width: 150px;
+    width: 170px;
     height: 60px;
     border-radius: 0px !important;
     margin-top: 10px;
@@ -80,7 +91,10 @@
     width: 100%;
     font-size: 15px;
     text-align: center;
-    padding-top: 13px;
+    color: #FFF;
+}
+.div-movimientos:hover{
+    background: #555 !important;
     color: #FFF;
 }
 
@@ -94,4 +108,58 @@
 
 .movimientoAdecuado{
     background: #555 !important;
+    color: #FFF;
+}
+
+.value-2{
+    background: #eee4da;
+}
+
+.value-4{
+    background: #ede0c8;
+}
+
+.value-8{
+    background: #f2b179;
+    color: #FFF;
+}
+
+.value-16{
+    background: #f59563;
+    color: #FFF;
+}
+
+.value-32{
+    background: #f67c5f;
+    color: #FFF;
+}
+
+.value-64{
+    background: #ea3e18;
+    color: #FFF;
+}
+
+.value-128{
+    background: #dcaf4a;
+    color: #FFF;
+}
+
+.value-256{
+    background: #dfad3a;
+    color: #FFF;
+}
+
+.value-512{
+    background: #dfa92b;
+    color: #FFF;
+}
+
+.value-1024{
+    background: #dfa51d;
+    color: #FFF;
+}
+
+.value-2048{
+    background: #ecc400;
+    color: #FFF;
 }

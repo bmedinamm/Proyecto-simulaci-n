@@ -3,6 +3,7 @@ angular.module('2048Simulator')
 .controller('estadisticosCtrl', ['$scope', '$EstadisticosService', function($scope, $EstadisticosService){
 	$scope.dataGrafico1 = [[],[]];
 	$scope.dataGrafico2 = [[]];
+	$scope.dataGrafico1 = [[8,41,52,15],[4,5,6,7]];
 	$scope.labelsGrafico1 = ['Heuristica 1', 'Heuristica 2', 'Heuristica 3', 'Heuristica 4'];
 	$scope.seriesGrafico1 = ['Porcentaje ganado ', 'Porcentaje perdido '];
 	

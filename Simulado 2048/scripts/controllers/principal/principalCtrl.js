@@ -1,7 +1,7 @@
 'use strict';
 angular.module('2048Simulator')
-.controller('principalCtrl', ['$location','toastr','$interval','$rootScope','$timeout','$TableroService','$scope','$JuegoService','$ExpectiMaxService', 
-	function($location, toastr, $interval, $rootScope,$timeout, $TableroService, $scope, $JuegoService, $ExpectiMaxService){
+.controller('principalCtrl', ['$EstadisticosService','$location','toastr','$interval','$rootScope','$timeout','$TableroService','$scope','$JuegoService','$ExpectiMaxService', 
+	function($EstadisticosService, $location, toastr, $interval, $rootScope,$timeout, $TableroService, $scope, $JuegoService, $ExpectiMaxService){
 	
 	$scope.rejillaPrincipal = [];
 	$scope.movimiento = {};
@@ -29,10 +29,14 @@ angular.module('2048Simulator')
 
 	//Funcion que valida si el valor agregado a una celda es un numero
 	$scope.validarCelda = function(indice1, indice2, valor){
-		if(!isNaN(valor)){
-			$scope.rejillaPrincipal[indice1][indice2] = Math.abs(valor);
-			if(valor != 0)
-				tableroVacio = false;
+		if(!isNaN(valor) && valor != null){//Indica que es un numero
+			if(Number.isInteger(Math.log2(valor))){
+				$scope.rejillaPrincipal[indice1][indice2] = Math.abs(valor);
+				if(valor != 0)//Indica que es otra cosa menos un numero
+					tableroVacio = false;
+			}
+			else
+				toastr.warning('El valor agregado debe ser potencia de 2', valor+' no es válido');
 		}
 		else
 			$scope.rejillaPrincipal[indice1][indice2] = 0;
@@ -49,35 +53,52 @@ angular.module('2048Simulator')
 	//Funcion que mueve todo los elementos del tablero hacia la izquierda
 	$scope.moverEnDireccionIzquierda = function(){
 		if(!$scope.procesando){
-			$scope.rejillaPrincipal = $JuegoService.moverEnDireccionIzquierda($scope.rejillaPrincipal, true, 'real');
-			$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
-			$scope.cantidadEstados++;
+			if(!tableroVacio){
+				$scope.rejillaPrincipal = $JuegoService.moverEnDireccionIzquierda($scope.rejillaPrincipal, true, 'real');
+				$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
+				$scope.cantidadEstados++;
+			}
+			else
+				toastr.error('Las celdas deben estar llenas', 'Tablero vacío');
 		}
 	}
 
 	//Funcion que mueve todo los elementos del tablero hacia la derecha
 	$scope.moverEnDireccionDerecha = function(){
 		if(!$scope.procesando){
-			$scope.rejillaPrincipal = $JuegoService.moverEnDireccionDerecha($scope.rejillaPrincipal, true, 'real');
-			$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
-			$scope.cantidadEstados++;
+			if(!tableroVacio){
+				$scope.rejillaPrincipal = $JuegoService.moverEnDireccionDerecha($scope.rejillaPrincipal, true, 'real');
+				$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
+				$scope.cantidadEstados++;
+			}
+			else
+				toastr.error('Las celdas deben estar llenas', 'Tablero vacío');
 		}
 	}
 
 	//Funcion que mueve todo los elementos del tablero hacia arriba
 	$scope.moverEnDireccionArriba = function(){
 		if(!$scope.procesando){
-			$scope.rejillaPrincipal = $JuegoService.moverEnDireccionArriba($scope.rejillaPrincipal, true, 'real');
-			$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
-			$scope.cantidadEstados++;
+			if(!tableroVacio){
+				$scope.rejillaPrincipal = $JuegoService.moverEnDireccionArriba($scope.rejillaPrincipal, true, 'real');
+				$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
+				$scope.cantidadEstados++;
+			}
+			else
+				toastr.error('Las celdas deben estar llenas', 'Tablero vacío');
 		}
 	}
 
 	//Funcion que mueve todo los elementos del tablero hacia arriba
 	$scope.moverEnDireccionAbajo = function(){
 		if(!$scope.procesando){
-			$scope.rejillaPrincipal = $JuegoService.moverEnDireccionAbajo($scope.rejillaPrincipal, true, 'real');
-			$scope.cantidadEstados++;
+			if(!tableroVacio){
+				$scope.rejillaPrincipal = $JuegoService.moverEnDireccionAbajo($scope.rejillaPrincipal, true, 'real');
+				$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
+				$scope.cantidadEstados++;
+			}
+			else
+				toastr.error('Las celdas deben estar llenas', 'Tablero vacío');
 		}
 	}
 
@@ -124,6 +145,7 @@ angular.module('2048Simulator')
 						toastr.info('Se ha detenido la partida', 'Partida detenida');
 				}
 				avisoMostrado = true;
+				$scope.movimiento = { movimientoAdecuado: null, estadisticos: [0,0,0,0]};
 			}
 			$scope.procesando = false;
 		}
