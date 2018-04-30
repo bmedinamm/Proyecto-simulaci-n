@@ -1,7 +1,7 @@
 <br>
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#home">Estadisticos algoritmo Expecti Max</a></li>
-  <li><a data-toggle="tab" href="#menu1">Estadisticos persona promedio</a></li>
+  <li><a data-toggle="tab" href="#menu1">Estadísticos persona promedio</a></li>
 </ul>
 <br>
 <div class="tab-content">
@@ -14,7 +14,7 @@
 				</div>
 				<div class="col-md-9">
 					<h6>Promedio movimientos para ganar partida</h6>
-					<h3 class="dato-estadistico">165</h3>
+					<h3 class="dato-estadistico">{{estadisticosExpectiMax.promedioMovimientos}}</h3>
 				</div>
 			</div>
 		</div>
@@ -25,7 +25,7 @@
 				</div>
 				<div class="col-md-9">
 					<h6>Porcentaje de partidas ganadas</h6>
-					<h3 class="dato-estadistico">95%</h3>
+					<h3 class="dato-estadistico">{{estadisticosExpectiMax.porcentajeGanado}}%</h3>
 				</div>
 			</div>
 		</div>
@@ -36,18 +36,18 @@
 				</div>
 				<div class="col-md-9">
 					<h6>Cantidad partidas jugadas</h6>
-					<h3 class="dato-estadistico">165</h3>
+					<h3 class="dato-estadistico">{{estadisticosExpectiMax.totalPartidasJugadas}}</h3>
 				</div>
 			</div>
 		</div>
 	</div><br>
 	<div class="panel panel-default">
 	  <div class="panel-body">
-	  	<h4>Rendimiento de las funciones de evaluación (Heuristicas)</h4>
-	  	<small>A continuacion se muestra una grafica con el porcentaje de partidas ganadas y partidas perdidas al utilizar cada una de las funciones de evaluacion</small><hr>
+	  	<h4>Rendimiento de las funciones de evaluación (Heurísticas)</h4>
+	  	<small>A continuación se muestra una gráfica con el porcentaje de partidas ganadas y partidas perdidas al utilizar cada una de las funciones de evaluación</small><hr>
 	  	<div class="row">
 	  		<div class="col-md-10">
-				<canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+				<canvas id="bar" class="chart chart-bar" chart-data="dataGrafico1" chart-labels="labelsGrafico1" chart-series="seriesGrafico1"></canvas>
 	  		</div>
 	  	</div>
 	  </div>
@@ -55,7 +55,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<h4>Movimientos necesarios parapotencia de 2</h4>
-			<small>A continuacion se muestra un grafico con la cantidad de movimientos que se necesitan para obtener cada una de las potencias de 2</small>
+			<small>A continuación se muestra un gráfico con la cantidad de movimientos que se necesitan para obtener cada una de las potencias de 2</small>
 			<!--Table-->
 			<table class="table">
 			    <!--Table head-->
@@ -77,15 +77,15 @@
 			    <!--Table body-->
 			    <tbody>
 			        <tr>
-			            <td>1</td>
-			            <td>2</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
+			            <td>{{dataGrafico2[0][0]}}</td>
+			            <td>{{dataGrafico2[0][1]}}</td>
+			            <td>{{dataGrafico2[0][2]}}</td>
+			            <td>{{dataGrafico2[0][3]}}</td>
+			            <td>{{dataGrafico2[0][4]}}</td>
+			            <td>{{dataGrafico2[0][5]}}</td>
+			            <td>{{dataGrafico2[0][6]}}</td>
+			            <td>{{dataGrafico2[0][7]}}</td>
+			            <td>{{dataGrafico2[0][8]}}</td>
 			        </tr>
 			    </tbody>
 			    <!--Table body-->
@@ -138,8 +138,8 @@
 	</div><br>
 	<div class="panel panel-default">
 	  <div class="panel-body">
-	  	<h4>Rendimiento de las funciones de evaluación (Heuristicas)</h4>
-	  	<small>A continuacion se muestra una grafica con el porcentaje de partidas ganadas y partidas perdidas al utilizar cada una de las funciones de evaluacion</small><hr>
+	  	<h4>Rendimiento de las funciones de evaluación (Heurísticas)</h4>
+	  	<small>A continuación se muestra una gráfica con el porcentaje de partidas ganadas y partidas perdidas al utilizar cada una de las funciones de evaluación</small><hr>
 	  	<div class="row">
 	  		<div class="col-md-10">
 				<canvas id="bar" class="chart chart-horizontal-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
@@ -150,7 +150,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<h4>Movimientos necesarios parapotencia de 2</h4>
-			<small>A continuacion se muestra un grafico con la cantidad de movimientos que se necesitan para obtener cada una de las potencias de 2</small>
+			<small>A continuación se muestra un gráfico con la cantidad de movimientos que se necesitan para obtener cada una de las potencias de 2</small>
 			<!--Table-->
 			<table class="table">
 			    <!--Table head-->
