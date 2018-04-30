@@ -110,24 +110,24 @@ angular.module('2048Simulator')
 	}
 
 	//Funcion que juega de forma automatizada en base a las ayudas del algoritmo que procesa el juego
-	$scope.jugarDeFormaAutomatica = function(){
+	$scope.jugarDeFormaAutomatica = function(cantidadNivelesProfundidad, intervaloTiempo){
 		avisoMostrado = false;
 		if(!$scope.procesando){
 			if(!tableroVacio){
 				$scope.procesando = true;
-				jugarDeFormaAutomatica();
+				//jugarDeFormaAutomatica();
 				$interval(function(){
-					jugarDeFormaAutomatica();
-				},100);
+					jugarDeFormaAutomatica(cantidadNivelesProfundidad);
+				},intervaloTiempo);
 			}
 			else
 				toastr.error('Las celdas deben estar llenas', 'Tablero vacío');
 		}
 	}
 	
-	function jugarDeFormaAutomatica(){
+	function jugarDeFormaAutomatica(cantidadNivelesProfundidad){
 		if(!$JuegoService.haTerminado($scope.rejillaPrincipal) && $scope.procesando){
-			$scope.movimiento = $ExpectiMaxService.expectiMax('juegoPrueba', $scope.rejillaPrincipal, 5, 10, 'MAX', true, parseInt($scope.tipoHeuristica));
+			$scope.movimiento = $ExpectiMaxService.expectiMax('juegoPrueba', $scope.rejillaPrincipal, cantidadNivelesProfundidad, 10, 'MAX', true, parseInt($scope.tipoHeuristica));
 			$scope.rejillaPrincipal = $JuegoService.realizarMovimiento($scope.movimiento.movimientoAdecuado, $scope.rejillaPrincipal, true, 'real');
 			if($TableroService.obtenerCantidadCeldasVacias($scope.rejillaPrincipal) != 0)
 				$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
