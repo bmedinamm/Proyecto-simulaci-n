@@ -179,6 +179,9 @@ angular.module('2048Simulator')
           return true;
         else
          return estaInmovil(rejillaPrincipal);
+      },
+      haGanado: function(rejillaPrincipal){
+        return haGanado(rejillaPrincipal);
       }
   }
 })

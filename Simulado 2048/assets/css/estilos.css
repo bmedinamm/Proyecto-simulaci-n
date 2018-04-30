@@ -8,8 +8,31 @@
     margin-bottom: 10px;
 }
 
+.item-estadisticos{
+    background: #FFF;
+    margin-right: -8px !important;
+}
+
 .fondo-principal{
     background: #faf8ef;
+}
+
+.dato-estadistico{
+    margin-top: 0px;
+    margin-left: 20%;
+    font-weight: bold;
+}
+
+.icon-estadisticas{
+    display: block;
+    margin: auto;
+    font-size: 30px;
+    margin-top: 18px;
+    color: #434a54;
+}
+
+.fondo-estadisticos{
+    background: #f4f6f9;
 }
 
 .titulo-principal{
@@ -67,4 +90,8 @@
 
 .font-19{
     font-size: 19px !important;
+}
+
+.movimientoAdecuado{
+    background: #555 !important;
 }

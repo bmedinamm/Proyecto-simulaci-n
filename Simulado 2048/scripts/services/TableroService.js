@@ -13,6 +13,14 @@ angular.module('2048Simulator')
       }
     }
 
+    //Funcion que calcula y retorna el maximo de dos numeros
+    function obtenerMaximo(a, b){
+      if(a > b)
+        return a;
+      else
+        return b;
+    }
+
     //Funcion que retorna la sumatoria ponderada entre el estado actual (tablero actual) del juego y una tabla monotona
     function obtenerMonotonia(tablero){
       var sumatoria = 0;
@@ -53,6 +61,7 @@ angular.module('2048Simulator')
       return similitud
     }
 
+
     //Funcion que retorna la cantidad de celdas vacias
     function obtenerCantidadCeldasVacias(tablero){
       var cantidad = 0;
@@ -63,6 +72,32 @@ angular.module('2048Simulator')
         }
       }
       return cantidad;
+    }
+
+    function obtenerCeldaMaxima(tablero){
+      var valorMaximo = 0;
+      for(var i = 0; i<DIMENSION; i++){
+        for(var j = 0; j<DIMENSION; j++){
+          valorMaximo = obtenerMaximo(valorMaximo, tablero[i][j]);
+        }
+      }
+      return valorMaximo;
+    }
+    
+    function heuristica1(tablero, cantidadPuntos){
+      return cantidadPuntos + obtenerMonotonia(tablero) - obtenerSimilitud(tablero) + Math.log(cantidadPuntos)*obtenerCantidadCeldasVacias(tablero);
+    }
+
+    function heuristica2(tablero, cantidadPuntos){
+      return obtenerMonotonia(tablero) - obtenerSimilitud(tablero) + Math.log(cantidadPuntos)*obtenerCantidadCeldasVacias(tablero);
+    }
+
+    function heuristica3(tablero, cantidadPuntos){
+      return cantidadPuntos - obtenerSimilitud(tablero) + Math.log(cantidadPuntos)*obtenerCantidadCeldasVacias(tablero);
+    }
+
+    function heuristica4(tablero, cantidadPuntos){
+      return cantidadPuntos + (obtenerCantidadCeldasVacias(tablero)*Math.log2(obtenerCeldaMaxima(tablero))) + obtenerMonotonia(tablero);
     }
     
     return{
@@ -82,8 +117,15 @@ angular.module('2048Simulator')
           revertirFila(rejillaPrincipal[i]);
       },
       //Funcion matematica que asocia diferentes estrategias
-      aplicarHeuristica1: function(tablero, cantidadPuntos){
-        return cantidadPuntos + obtenerMonotonia(tablero) - obtenerSimilitud(tablero) + Math.log(cantidadPuntos)*obtenerCantidadCeldasVacias(tablero);
+      aplicarHeuristica: function(tablero, cantidadPuntos, heuristica){
+        if(heuristica == 1)
+          return heuristica1(tablero, cantidadPuntos);
+        else if(heuristica == 2)
+          return heuristica2(tablero, cantidadPuntos);
+        else if(heuristica == 3)
+          return heuristica3(tablero, cantidadPuntos);
+        else
+          return heuristica4(tablero, cantidadPuntos);
       },
       obtenerCantidadCeldasVacias: function(tablero){
         return obtenerCantidadCeldasVacias(tablero);

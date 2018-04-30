@@ -32,18 +32,18 @@ angular.module('2048Simulator')
         //Calculamos los porcentajes de exito por cada uno de los primeros 4 caminos
         for(var i = 0; i<datosEsenciales.length; i++){
             if(datosEsenciales[i][1] != undefined)
-                estadisticos[i] = Math.round((datosEsenciales[i][1]/sumatoria)*100);
+                estadisticos[datosEsenciales[i][0]] = Math.round((datosEsenciales[i][1]/sumatoria)*100);
         }
 
         return {movimientoAdecuado: movimiento, estadisticos: estadisticos}
     }
 
     //Funcion que retorna el movimiento mas adecuado a realizar, segun un estado dado
-    function expectiMax(tipoJuego, tablero, nivel, puntuacion, tipoNodo, retornarMovimiento){
+    function expectiMax(tipoJuego, tablero, nivel, puntuacion, tipoNodo, retornarMovimiento, heuristica){
 		//Evaluamos el caso base (ultimo nivel de profundidad)
         if(nivel == 0){
             //console.log(tablero);
-            return $TableroService.aplicarHeuristica1(tablero, $JuegoService.obtenerPuntuacion(tipoJuego));
+            return $TableroService.aplicarHeuristica(tablero, $JuegoService.obtenerPuntuacion(tipoJuego), heuristica);
         }
         else{
             //Evaluamos si el nodo o estado a procesar es de tipo MAX
@@ -56,7 +56,7 @@ angular.module('2048Simulator')
                     array1 = $JuegoService.realizarMovimiento(i, array1, true, tipoJuego);
                     //Podamos el nodo si el movimiento anterior produce el mismo tablero
                     if(!$TableroService.sonIguales(array1, tablero)){
-                        var valorNodo = expectiMax(tipoJuego, array1, nivel - 1, $JuegoService.obtenerPuntuacion(tipoJuego), 'CHANGE', false);
+                        var valorNodo = expectiMax(tipoJuego, array1, nivel - 1, $JuegoService.obtenerPuntuacion(tipoJuego), 'CHANGE', false, heuristica);
                         if(retornarMovimiento)
                             nodosFinales.push([i, valorNodo]);
                         a = obtenerMaximo(a,valorNodo)
@@ -85,7 +85,7 @@ angular.module('2048Simulator')
                         peso = (1.0/cantidadCeldasVacias)*0.1;
                         $JuegoService.agregarCelda(array1 , 4);
                     }
-                    a += peso * expectiMax(tipoJuego, array1, nivel - 1, puntuacion, 'MAX', false);
+                    a += peso * expectiMax(tipoJuego, array1, nivel - 1, puntuacion, 'MAX', false, heuristica);
                 }
                 return a;
             }
@@ -94,8 +94,8 @@ angular.module('2048Simulator')
 
     return{
     	//Funcion que retorna el movimiento mas adecuado a realizar, segun un estado dado
-    	expectiMax: function(tipoJuego, tablero, nivel, puntuacion, tipoNodo, retornarMovimiento){
-    		return expectiMax(tipoJuego, tablero, nivel, puntuacion, tipoNodo, retornarMovimiento);
+    	expectiMax: function(tipoJuego, tablero, nivel, puntuacion, tipoNodo, retornarMovimiento, heuristica){
+    		return expectiMax(tipoJuego, tablero, nivel, puntuacion, tipoNodo, retornarMovimiento, heuristica);
     	}
     }
 })

@@ -1,0 +1,197 @@
+<br>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">Estadisticos algoritmo Expecti Max</a></li>
+  <li><a data-toggle="tab" href="#menu1">Estadisticos persona promedio</a></li>
+</ul>
+<br>
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="row item-estadisticos">
+				<div class="col-md-3">
+					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
+				</div>
+				<div class="col-md-9">
+					<h6>Promedio movimientos para ganar partida</h6>
+					<h3 class="dato-estadistico">165</h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="row item-estadisticos">
+				<div class="col-md-3">
+					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
+				</div>
+				<div class="col-md-9">
+					<h6>Porcentaje de partidas ganadas</h6>
+					<h3 class="dato-estadistico">95%</h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="row item-estadisticos">
+				<div class="col-md-3">
+					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
+				</div>
+				<div class="col-md-9">
+					<h6>Cantidad partidas jugadas</h6>
+					<h3 class="dato-estadistico">165</h3>
+				</div>
+			</div>
+		</div>
+	</div><br>
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	  	<h4>Rendimiento de las funciones de evaluación (Heuristicas)</h4>
+	  	<small>A continuacion se muestra una grafica con el porcentaje de partidas ganadas y partidas perdidas al utilizar cada una de las funciones de evaluacion</small><hr>
+	  	<div class="row">
+	  		<div class="col-md-10">
+				<canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+	  		</div>
+	  	</div>
+	  </div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h4>Movimientos necesarios parapotencia de 2</h4>
+			<small>A continuacion se muestra un grafico con la cantidad de movimientos que se necesitan para obtener cada una de las potencias de 2</small>
+			<!--Table-->
+			<table class="table">
+			    <!--Table head-->
+			    <thead>
+			        <tr>
+			            <th>8</th>
+			            <th>16</th>
+			            <th>32</th>
+			            <th>64</th>
+			            <th>128</th>
+			            <th>256</th>
+			            <th>512</th>
+			            <th>1024</th>
+			            <th>2048</th>
+			        </tr>
+			    </thead>
+			  <!--Table head-->
+
+			    <!--Table body-->
+			    <tbody>
+			        <tr>
+			            <td>1</td>
+			            <td>2</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			        </tr>
+			    </tbody>
+			    <!--Table body-->
+			</table>
+			<!--Table-->
+			<hr>
+			<canvas id="line" class="chart chart-line" chart-data="dataGrafico2"
+			chart-labels="labelsGrafico2" chart-series="seriesGrafico2" chart-options="options"
+			chart-dataset-override="datasetOverride" chart-click="onClick">
+			</canvas>
+		</div>
+	</div>
+    
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <div class="row">
+		<div class="col-md-4">
+			<div class="row item-estadisticos">
+				<div class="col-md-3">
+					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
+				</div>
+				<div class="col-md-9">
+					<h6>Promedio movimientos para ganar partida</h6>
+					<h3 class="dato-estadistico">165</h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="row item-estadisticos">
+				<div class="col-md-3">
+					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
+				</div>
+				<div class="col-md-9">
+					<h6>Porcentaje de partidas ganadas</h6>
+					<h3 class="dato-estadistico">95%</h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="row item-estadisticos">
+				<div class="col-md-3">
+					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
+				</div>
+				<div class="col-md-9">
+					<h6>Cantidad partidas jugadas</h6>
+					<h3 class="dato-estadistico">165</h3>
+				</div>
+			</div>
+		</div>
+	</div><br>
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	  	<h4>Rendimiento de las funciones de evaluación (Heuristicas)</h4>
+	  	<small>A continuacion se muestra una grafica con el porcentaje de partidas ganadas y partidas perdidas al utilizar cada una de las funciones de evaluacion</small><hr>
+	  	<div class="row">
+	  		<div class="col-md-10">
+				<canvas id="bar" class="chart chart-horizontal-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+	  		</div>
+	  	</div>
+	  </div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h4>Movimientos necesarios parapotencia de 2</h4>
+			<small>A continuacion se muestra un grafico con la cantidad de movimientos que se necesitan para obtener cada una de las potencias de 2</small>
+			<!--Table-->
+			<table class="table">
+			    <!--Table head-->
+			    <thead>
+			        <tr>
+			            <th>8</th>
+			            <th>16</th>
+			            <th>32</th>
+			            <th>64</th>
+			            <th>128</th>
+			            <th>256</th>
+			            <th>512</th>
+			            <th>1024</th>
+			            <th>2048</th>
+			        </tr>
+			    </thead>
+			  <!--Table head-->
+
+			    <!--Table body-->
+			    <tbody>
+			        <tr>
+			            <td>1</td>
+			            <td>2</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			            <td>3</td>
+			        </tr>
+			    </tbody>
+			    <!--Table body-->
+			</table>
+			<!--Table-->
+			<hr>
+			<canvas id="line" class="chart chart-line" chart-data="dataGrafico2"
+			chart-labels="labelsGrafico2" chart-series="seriesGrafico2" chart-options="options"
+			chart-dataset-override="datasetOverride" chart-click="onClick">
+			</canvas>
+		</div>
+	</div>
+  </div>
+</div>
