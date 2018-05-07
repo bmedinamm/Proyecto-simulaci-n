@@ -23,6 +23,11 @@ input[type=number] { -moz-appearance:textfield; }
     margin-right: -8px !important;
 }
 
+.modal-configuracion{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 40%;
+}
 .fondo-principal{
     background: #faf8ef;
 }

@@ -1,0 +1,165 @@
+.input-rejilla{
+    height: 60px;
+    width: 60px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    background: #eee4da;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: #675f58;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+.item-estadisticos{
+    background: #FFF;
+    margin-right: -8px !important;
+}
+
+.fondo-principal{
+    background: #faf8ef;
+}
+
+.dato-estadistico{
+    margin-top: 0px;
+    margin-left: 20%;
+    font-weight: bold;
+}
+
+.icon-estadisticas{
+    display: block;
+    margin: auto;
+    font-size: 30px;
+    margin-top: 18px;
+    color: #434a54;
+}
+
+.fondo-estadisticos{
+    background: #f4f6f9;
+}
+
+.titulo-principal{
+    font-weight: bold;
+    color: #806e4f;
+    font-size: 26px;
+}
+
+.rejilla-2048{
+    background: #bbada0;
+    border-radius: 10px;
+    padding-left: 9px;
+    padding: 20px 23px 10px 15px !important;
+    margin-top: 20px;
+}
+
+.logo-unah{
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.item-menu{
+    width: 170px;
+    height: 60px;
+    border-radius: 0px !important;
+    margin-top: 10px;
+    text-align: left !important;
+    background: #434A54 !important;
+    color: #FFF !important;
+}
+
+.item-menu:hover{
+    background: #656D78 !important;
+}
+
+.subtitulo-item-menu{
+    display: block;
+    font-size: 60%;
+    margin-left: 23px;
+}
+
+.div-movimientos{
+    background: #286090;
+    height: 45px;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+    color: #FFF;
+}
+.div-movimientos:hover{
+    background: #555 !important;
+    color: #FFF;
+}
+
+.font-25{
+    font-size: 25px !important;
+}
+
+.font-19{
+    font-size: 19px !important;
+}
+
+.movimientoAdecuado{
+    background: #555 !important;
+    color: #FFF;
+}
+
+.value-2{
+    background: #eee4da;
+}
+
+.value-4{
+    background: #ede0c8;
+}
+
+.value-8{
+    background: #f2b179;
+    color: #FFF;
+}
+
+.value-16{
+    background: #f59563;
+    color: #FFF;
+}
+
+.value-32{
+    background: #f67c5f;
+    color: #FFF;
+}
+
+.value-64{
+    background: #ea3e18;
+    color: #FFF;
+}
+
+.value-128{
+    background: #dcaf4a;
+    color: #FFF;
+}
+
+.value-256{
+    background: #dfad3a;
+    color: #FFF;
+}
+
+.value-512{
+    background: #dfa92b;
+    color: #FFF;
+}
+
+.value-1024{
+    background: #dfa51d;
+    color: #FFF;
+}
+
+.value-2048{
+    background: #ecc400;
+    color: #FFF;
+}

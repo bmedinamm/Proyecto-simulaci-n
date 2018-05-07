@@ -18,20 +18,25 @@
 			  Ayuda
 			  <small class="subtitulo-item-menu">Sobre movimiento</small>
 			</button><br>
-			<button ng-disabled="procesando" ng-click="jugarDeFormaAutomatica(5, 100)" type="button" class="btn btn-default btn-lg item-menu">
+			<button ng-disabled="procesando" ng-click="jugarDeFormaAutomatica()" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-play" aria-hidden="true"></span> 
 			  Expecti Max
 			  <small class="subtitulo-item-menu">Modo inteligente</small>
 			</button><br>
-			<button ng-disabled="procesando" ng-click="jugarDeFormaAutomatica(1, 50)" type="button" class="btn btn-default btn-lg item-menu">
-			  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-			  Humano
-			  <small class="subtitulo-item-menu">Modo inteligente</small>
+			<button  ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
+			  <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
+			  Información
+			  <small class="subtitulo-item-menu">Conceptos teóricos</small>
 			</button><br>
-			<button ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
+			<button ng-click="abrirModalConfiguracion()" ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
 			  Configuración
 			  <small class="subtitulo-item-menu">Cambiar propiedades</small>
+			</button><br>
+			<button ng-click="correrEnConsola()" ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
+			  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+			  Correr
+			  <small class="subtitulo-item-menu">En consola</small>
 			</button><br>
 		</div>
 		<div class="col-md-8" ui-view>
@@ -42,11 +47,6 @@
 			<hr>
 			<div class="row">
 				<div class="col-md-10">
-					<p>Función de evaluacion de estados</p>
-					<label class="radio-inline"><input ng-model="tipoHeuristica" ng-disabled="procesando" type="radio" value="1" name="tipoHeuristica">Heurística 1</label>
-					<label class="radio-inline"><input ng-model="tipoHeuristica" ng-disabled="procesando" type="radio" value="2" name="tipoHeuristica">Heurística 2</label>
-					<label class="radio-inline"><input ng-model="tipoHeuristica" ng-disabled="procesando" type="radio" value="3" name="tipoHeuristica">Heurística 3</label>
-					<label class="radio-inline"><input ng-model="tipoHeuristica" ng-disabled="procesando" type="radio" value="4" name="tipoHeuristica">Heurística 4</label>
 				</div>
 				<div class="col-md-1">
 					<button ng-if="!procesando" ng-click="limpiarTablero()" type="button" class="btn btn-default" aria-label="Left Align">
@@ -130,7 +130,7 @@
 								<p>Porcentaje de éxito por cada movimiento</p>
 							</div>
 							<div class="col-md-5">
-								<strong>{{cantidadEstados}} movimientos</strong>
+								<strong>{{partida.totalMovimientos}} movimientos</strong>
 							</div>
 						</div>
 						<hr>
@@ -165,4 +165,48 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- Modal -->
+<div id="modalConfiguracion" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content modal-configuracion">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Panel de configuración</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+			  <label for="sel1">Seleccionar heuristica</label>
+			  <select ng-model="configuracion.tipoHeuristica" class="form-control" id="sel1">
+			    <option value="1">Heuristica 1</option>
+			    <option value="2">Heuristica 2</option>
+			    <option value="3">Heuristica 3</option>
+			    <option value="4">Heuristica 4</option>
+			  </select>
+			</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+			  <label for="sel1">Nivel de profundidad</label>
+			  <select ng-model="configuracion.nivelProfundidad" class="form-control" id="sel1">
+			    <option value="1">Nivel 1</option>
+			    <option value="2">Nivel 2</option>
+			    <option value="3">Nivel 3</option>
+			    <option value="4">Nivel 4</option>
+			    <option value="5">Nivel 5 (100 Milisegundos)</option>
+			    <option value="6">Nivel 6</option>
+			    <option value="7">Nivel 7</option>
+			    <option value="8">Nivel 8</option>
+			    <option value="9">Nivel 9</option>
+			  </select>
+			</div>
+			</div>
+		</div>
+      </div>
+    </div>
+  </div>
 </div>

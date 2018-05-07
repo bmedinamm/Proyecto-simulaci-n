@@ -152,15 +152,18 @@ angular.module('2048Simulator')
         return igualdad;
       },
       imprimirTablero: function(tablero){
-        var cadena = '';
-        for(var i = 0; i<DIMENSION; i++){
-            var fila = '';
-            for(j = 0; j<DIMENSION; j++){
-                fila += tablero[i][j] + '\t';
-            }
-            cadena += fila+'\n';
-        }
-        console.log(cadena);
-    }
+          var cadena = '';
+          for(var i = 0; i<DIMENSION; i++){
+              var fila = '';
+              for(j = 0; j<DIMENSION; j++){
+                  fila += tablero[i][j] + '\t';
+              }
+              cadena += fila+'\n';
+          }
+          console.log(cadena);
+      },
+      obtenerCeldaMaxima: function(tablero){
+        return obtenerCeldaMaxima(tablero);
+      }
     }
 })

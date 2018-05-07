@@ -1,197 +1,133 @@
 <br>
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home">Estadisticos algoritmo Expecti Max</a></li>
-  <li><a data-toggle="tab" href="#menu1">Estadísticos persona promedio</a></li>
-</ul>
-<br>
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-	<div class="row">
-		<div class="col-md-4">
-			<div class="row item-estadisticos">
-				<div class="col-md-3">
-					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
-				</div>
-				<div class="col-md-9">
-					<h6>Promedio movimientos para ganar partida</h6>
-					<h3 class="dato-estadistico">{{estadisticosExpectiMax.promedioMovimientos}}</h3>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="row item-estadisticos">
-				<div class="col-md-3">
-					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
-				</div>
-				<div class="col-md-9">
-					<h6>Porcentaje de partidas ganadas</h6>
-					<h3 class="dato-estadistico">{{estadisticosExpectiMax.porcentajeGanado}}%</h3>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="row item-estadisticos">
-				<div class="col-md-3">
-					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
-				</div>
-				<div class="col-md-9">
-					<h6>Cantidad partidas jugadas</h6>
-					<h3 class="dato-estadistico">{{estadisticosExpectiMax.totalPartidasJugadas}}</h3>
-				</div>
-			</div>
-		</div>
-	</div><br>
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	  	<h4>Rendimiento de las funciones de evaluación (Heurísticas)</h4>
-	  	<small>A continuación se muestra una gráfica con el porcentaje de partidas ganadas y partidas perdidas al utilizar cada una de las funciones de evaluación</small><hr>
-	  	<div class="row">
-	  		<div class="col-md-10">
-				<canvas id="bar" class="chart chart-bar" chart-data="dataGrafico1" chart-labels="labelsGrafico1" chart-series="seriesGrafico1"></canvas>
-	  		</div>
-	  	</div>
-	  </div>
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group">
+	  <label for="sel1">Seleccionar heuristica</label>
+	  <select ng-model="filtro.heuristica" ng-change="obtenerEstadistico(filtro.heuristica, filtro.nivelProfundidad)" class="form-control" id="sel1">
+	    <option value="heuristica1">Heuristica 1</option>
+	    <option value="heuristica2">Heuristica 2</option>
+	    <option value="heuristica3">Heuristica 3</option>
+	    <option value="heuristica4">Heuristica 4</option>
+	  </select>
 	</div>
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<h4>Movimientos necesarios parapotencia de 2</h4>
-			<small>A continuación se muestra un gráfico con la cantidad de movimientos que se necesitan para obtener cada una de las potencias de 2</small>
-			<!--Table-->
-			<table class="table">
-			    <!--Table head-->
-			    <thead>
-			        <tr>
-			            <th>8</th>
-			            <th>16</th>
-			            <th>32</th>
-			            <th>64</th>
-			            <th>128</th>
-			            <th>256</th>
-			            <th>512</th>
-			            <th>1024</th>
-			            <th>2048</th>
-			        </tr>
-			    </thead>
-			  <!--Table head-->
-
-			    <!--Table body-->
-			    <tbody>
-			        <tr>
-			            <td>{{dataGrafico2[0][0]}}</td>
-			            <td>{{dataGrafico2[0][1]}}</td>
-			            <td>{{dataGrafico2[0][2]}}</td>
-			            <td>{{dataGrafico2[0][3]}}</td>
-			            <td>{{dataGrafico2[0][4]}}</td>
-			            <td>{{dataGrafico2[0][5]}}</td>
-			            <td>{{dataGrafico2[0][6]}}</td>
-			            <td>{{dataGrafico2[0][7]}}</td>
-			            <td>{{dataGrafico2[0][8]}}</td>
-			        </tr>
-			    </tbody>
-			    <!--Table body-->
-			</table>
-			<!--Table-->
-			<hr>
-			<canvas id="line" class="chart chart-line" chart-data="dataGrafico2"
-			chart-labels="labelsGrafico2" chart-series="seriesGrafico2" chart-options="options"
-			chart-dataset-override="datasetOverride" chart-click="onClick">
-			</canvas>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+	  <label for="sel1">Nivel de profundidad</label>
+	  <select ng-model="filtro.nivelProfundidad" ng-change="obtenerEstadistico(filtro.heuristica, filtro.nivelProfundidad)" class="form-control" id="sel1">
+	    <option value="profundidad1">Nivel 1</option>
+	    <option value="profundidad2">Nivel 2</option>
+	    <option value="profundidad3">Nivel 3</option>
+	    <option value="profundidad4">Nivel 4</option>
+	    <option value="profundidad5">Nivel 5</option>
+	    <option value="profundidad6">Nivel 6</option>
+	    <option value="profundidad6">Nivel 7</option>
+	    <option value="profundidad8">Nivel 8</option>
+	    <option value="profundidad9">Nivel 9</option>
+	  </select>
+	</div>
+	</div>
+</div><hr>
+<div class="row">
+	<div class="col-md-4">
+		<div class="row item-estadisticos">
+			<div class="col-md-3">
+				<i class="glyphicon glyphicon-check icon-estadisticas"></i>
+			</div>
+			<div class="col-md-9">
+				<h6>Promedio movimientos para ganar partida</h6>
+				<h3 class="dato-estadistico">{{estadisticosDeHeuristica.movimientoPromedioGanarPartida}}</h3>
+			</div>
 		</div>
 	</div>
-    
+	<div class="col-md-4">
+		<div class="row item-estadisticos">
+			<div class="col-md-3">
+				<i class="glyphicon glyphicon-check icon-estadisticas"></i>
+			</div>
+			<div class="col-md-9">
+				<h6>Porcentaje de partidas ganadas</h6>
+				<h3 class="dato-estadistico">{{estadisticosDeHeuristica.porcentajePartidasGanadas}}%</h3>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="row item-estadisticos">
+			<div class="col-md-3">
+				<i class="glyphicon glyphicon-check icon-estadisticas"></i>
+			</div>
+			<div class="col-md-9">
+				<h6>Cantidad partidas jugadas</h6>
+				<h3 class="dato-estadistico">{{estadisticosDeHeuristica.totalPartidasJugadas}}</h3>
+			</div>
+		</div>
+	</div>
+</div><br>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	<h4>Cantidad promedio para ganar partida, por cada dirección</h4>
+  	<small>A continuación se muestra una gráfica con la cantidad de movimientos promedio de movimientos que se hicieron para ganar las partidas</small><hr>
+  	<div class="row">
+  		<div class="col-md-10">
+			<canvas id="bar" class="chart chart-horizontal-bar" chart-data="dataGrafico1" chart-labels="labelsGrafico1" chart-series="seriesGrafico1"></canvas>
+  		</div>
+  	</div>
   </div>
-  <div id="menu1" class="tab-pane fade">
-    <div class="row">
-		<div class="col-md-4">
-			<div class="row item-estadisticos">
-				<div class="col-md-3">
-					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
-				</div>
-				<div class="col-md-9">
-					<h6>Promedio movimientos para ganar partida</h6>
-					<h3 class="dato-estadistico">165</h3>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="row item-estadisticos">
-				<div class="col-md-3">
-					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
-				</div>
-				<div class="col-md-9">
-					<h6>Porcentaje de partidas ganadas</h6>
-					<h3 class="dato-estadistico">95%</h3>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="row item-estadisticos">
-				<div class="col-md-3">
-					<i class="glyphicon glyphicon-check icon-estadisticas"></i>
-				</div>
-				<div class="col-md-9">
-					<h6>Cantidad partidas jugadas</h6>
-					<h3 class="dato-estadistico">165</h3>
-				</div>
-			</div>
-		</div>
-	</div><br>
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	  	<h4>Rendimiento de las funciones de evaluación (Heurísticas)</h4>
-	  	<small>A continuación se muestra una gráfica con el porcentaje de partidas ganadas y partidas perdidas al utilizar cada una de las funciones de evaluación</small><hr>
-	  	<div class="row">
-	  		<div class="col-md-10">
-				<canvas id="bar" class="chart chart-horizontal-bar" chart-data="dataGrafico1" chart-labels="labelsGrafico1" chart-series="seriesGrafico1"></canvas>
-	  		</div>
-	  	</div>
-	  </div>
-	</div>
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<h4>Movimientos necesarios parapotencia de 2</h4>
-			<small>A continuación se muestra un gráfico con la cantidad de movimientos que se necesitan para obtener cada una de las potencias de 2</small>
-			<!--Table-->
-			<table class="table">
-			    <!--Table head-->
-			    <thead>
-			        <tr>
-			            <th>8</th>
-			            <th>16</th>
-			            <th>32</th>
-			            <th>64</th>
-			            <th>128</th>
-			            <th>256</th>
-			            <th>512</th>
-			            <th>1024</th>
-			            <th>2048</th>
-			        </tr>
-			    </thead>
-			  <!--Table head-->
-
-			    <!--Table body-->
-			    <tbody>
-			        <tr>
-			            <td>1</td>
-			            <td>2</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
-			            <td>3</td>
-			        </tr>
-			    </tbody>
-			    <!--Table body-->
-			</table>
-			<!--Table-->
-			<hr>
-			<canvas id="line" class="chart chart-line" chart-data="dataGrafico2"
-			chart-labels="labelsGrafico2" chart-series="seriesGrafico2" chart-options="options"
-			chart-dataset-override="datasetOverride" chart-click="onClick">
-			</canvas>
-		</div>
-	</div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	<h4>Cantidad promedio para ganar partida, por cada dirección</h4>
+  	<small>A continuación se muestra una gráfica con la cantidad de movimientos promedio de movimientos que se hicieron para ganar las partidas</small><hr>
+  	<div class="row">
+  		<div class="col-md-10">
+			<canvas id="bar" class="chart chart-bar" chart-data="dataGrafico3" chart-labels="labelsGrafico3" chart-series="seriesGrafico3"></canvas>
+  		</div>
+  	</div>
   </div>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<h4>Movimientos necesarios para potencias de 2</h4>
+		<small>A continuación se muestra un gráfico con la cantidad de movimientos que se necesitan para obtener cada una de las potencias de 2</small>
+		<!--Table-->
+		<table class="table">
+		    <!--Table head-->
+		    <thead>
+		        <tr>
+		            <th>8</th>
+		            <th>16</th>
+		            <th>32</th>
+		            <th>64</th>
+		            <th>128</th>
+		            <th>256</th>
+		            <th>512</th>
+		            <th>1024</th>
+		            <th>2048</th>
+		        </tr>
+		    </thead>
+		  <!--Table head-->
+
+		    <!--Table body-->
+		    <tbody>
+		        <tr>
+		            <td>{{dataGrafico2[0][0]}}</td>
+		            <td>{{dataGrafico2[0][1]}}</td>
+		            <td>{{dataGrafico2[0][2]}}</td>
+		            <td>{{dataGrafico2[0][3]}}</td>
+		            <td>{{dataGrafico2[0][4]}}</td>
+		            <td>{{dataGrafico2[0][5]}}</td>
+		            <td>{{dataGrafico2[0][6]}}</td>
+		            <td>{{dataGrafico2[0][7]}}</td>
+		            <td>{{dataGrafico2[0][8]}}</td>
+		        </tr>
+		    </tbody>
+		    <!--Table body-->
+		</table>
+		<!--Table-->
+		<hr>
+		<canvas id="line" class="chart chart-line" chart-data="dataGrafico2"
+		chart-labels="labelsGrafico2" chart-series="seriesGrafico2" chart-options="options"
+		chart-dataset-override="datasetOverride" chart-click="onClick">
+		</canvas>
+	</div>
 </div>

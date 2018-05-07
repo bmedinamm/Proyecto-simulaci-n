@@ -111,6 +111,10 @@ angular.module('2048Simulator')
     }
 
     return{
+      inicializarDatos: function(){
+        cantidadPuntosReal = 2;
+        cantidadPuntosPrueba = 2;
+      },
       //Funcion que mueve todo los elementos del tablero hacia la izquierda
       moverEnDireccionIzquierda: function(rejillaPrincipal, incrementarPuntuacion, tipoJuego) {
         return moverEnDireccionIzquierda(rejillaPrincipal, incrementarPuntuacion, tipoJuego);
@@ -150,7 +154,7 @@ angular.module('2048Simulator')
         if(elementosCero.length > 0){
           var indice = elementosCero[Math.floor(Math.random() * (elementosCero.length - 0)) + 0];
           if(celda == null){
-            var probabilidad = Math.floor(Math.r&&om() * (101 - 0)) + 0;
+            var probabilidad = Math.floor(Math.random() * (101 - 0)) + 0;
             if(probabilidad > 90)//Habra un 10% de probabilidad de agregar un 4
               rejillaPrincipal[indice[0]][indice[1]] = 4;
             else//Habra un 90% de agregar un 2

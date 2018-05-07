@@ -34,7 +34,8 @@ angular.module('2048Simulator')
             if(datosEsenciales[i][1] != undefined)
                 estadisticos[datosEsenciales[i][0]] = Math.round((datosEsenciales[i][1]/sumatoria)*100);
         }
-
+        if(movimiento == undefined)
+            movimiento = (Math.floor(Math.random() * (4 - 0) + 0));
         return {movimientoAdecuado: movimiento, estadisticos: estadisticos}
     }
 

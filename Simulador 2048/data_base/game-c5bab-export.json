@@ -1,0 +1,780 @@
+{
+  "estadisticosDeHeuristicas" : {
+    "heuristica1" : {
+      "profundidad1" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad2" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad3" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad4" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad5" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad6" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad7" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad8" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad9" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      }
+    },
+    "heuristica2" : {
+      "profundidad1" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad2" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad3" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad4" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad5" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad6" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad7" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad8" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad9" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      }
+    },
+    "heuristica3" : {
+      "profundidad1" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad2" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad3" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad4" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad5" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad6" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad7" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad8" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad9" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      }
+    },
+    "heuristica4" : {
+      "profundidad1" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad2" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad3" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad4" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad5" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad6" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad7" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad8" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      },
+      "profundidad9" : {
+        "movimientoPromedioGanarPartida" : 0,
+        "movimientosPromedioAbajo" : 0,
+        "movimientosPromedioArriba" : 0,
+        "movimientosPromedioDerecho" : 0,
+        "movimientosPromedioIzquierdo" : 0,
+        "movimientosPromediosParaPotencias" : {
+          "potencia1024" : 0,
+          "potencia128" : 0,
+          "potencia16" : 0,
+          "potencia2048" : 0,
+          "potencia256" : 0,
+          "potencia32" : 0,
+          "potencia512" : 0,
+          "potencia64" : 0,
+          "potencia8" : 0
+        },
+        "totalPartidasGanadas" : 0,
+        "totalPartidasJugadas" : 0,
+        "totalPartidasPerdidas" : 0
+      }
+    }
+  },
+  "listaPartidas" : {
+    "-KjdkuJildjdn" : {
+      "movimientosAbajo" : 0,
+      "movimientosArriba" : 0,
+      "movimientosDerecha" : 0,
+      "movimientosIzquierda" : 0,
+      "nivelProfundidad" : 2,
+      "partidaGanada" : true,
+      "tipoHeuristica" : 0,
+      "totalMovimientos" : 0
+    }
+  }
+}
