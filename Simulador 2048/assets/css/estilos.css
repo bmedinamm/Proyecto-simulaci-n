@@ -23,6 +23,31 @@ input[type=number] { -moz-appearance:textfield; }
     margin-right: -8px !important;
 }
 
+.txt-left{
+    margin-left: 20px;
+}
+
+.img-imagen1{
+    width: 75%;
+    display: block;
+    margin: auto;
+}
+
+.img-autor{
+    height: 130px;
+    width: 100px;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid #CCC;
+}
+
+.img-imagen2{
+    width: 30%;
+    display: block;
+    margin: auto;
+}
+
 .modal-configuracion{
     width: 80%;
     margin-left: 10%;

@@ -17,6 +17,7 @@ angular.module('2048Simulator')
 	//Funcion que inicializa todos los valores de un tablero
 	$scope.limpiarTablero = function () {
 		if(!$scope.procesando){
+			tableroVacio = true;
 			$JuegoService.inicializarDatos();
 			$scope.rejillaPrincipal = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
 			$scope.movimiento = { movimientoAdecuado: null, estadisticos: [0,0,0,0]};
@@ -68,10 +69,11 @@ angular.module('2048Simulator')
 
 	//Funcion que agrega aleatoriamente 2 celdas al tablero
 	$scope.generarTablero = function() {
-		tableroVacio = false;
+		$scope.abrirVista('principal', true);
 		$scope.limpiarTablero();
 		$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
 		$JuegoService.agregarCelda($scope.rejillaPrincipal, null);
+		tableroVacio = false;
 	}
 
 	//Funcion que mueve todo los elementos del tablero hacia la izquierda
@@ -128,31 +130,28 @@ angular.module('2048Simulator')
 
 	//Funcion que envia el estado actual a expectiMax para obtener un movimiento adecuado
 	$scope.obtenerAyuda = function(){
+		$scope.abrirVista('principal', true);
 		if(!$scope.procesando){
-			$scope.movimiento = $ExpectiMaxService.expectiMax('juegoPrueba', $scope.rejillaPrincipal, 5, 10, 'MAX', true, parseInt($scope.tipoHeuristica));
+			$scope.movimiento = $ExpectiMaxService.expectiMax('juegoPrueba', $scope.rejillaPrincipal, parseInt($scope.configuracion.nivelProfundidad), 10, 'MAX', true, parseInt($scope.configuracion.tipoHeuristica));
 		}
 	}
 
 	function obtenerIntervaloDeTiempo(){
 		switch (parseInt($scope.configuracion.nivelProfundidad)) {
 		  	case 1:
-		  		return 100;
+		  		return 5;
 		  	case 2:
-		  		return 100;
+		  		return 10;
 		  	case 3:
-		  		return 100;
+		  		return 15;
 		  	case 4:
-		  		return 100;
+		  		return 20;
 		  	case 5:
-		  		return 100;
+		  		return 50;
 		  	case 6:
-		  		return 100;
+		  		return 1000;
 		  	case 7:
-		  		return 100;
-		  	case 8:
-		  		return 100;
-		  	case 9:
-		  		return 100;
+		  		return 4000;
 		  	
 		  	default:
 		  		break;
@@ -161,6 +160,7 @@ angular.module('2048Simulator')
 
 	//Funcion que juega de forma automatizada en base a las ayudas del algoritmo que procesa el juego
 	$scope.jugarDeFormaAutomatica = function(){
+		$scope.abrirVista('principal', true);
 		avisoMostrado = false;
 		if(!$scope.procesando){
 			if(!tableroVacio){
@@ -207,8 +207,8 @@ angular.module('2048Simulator')
 		}
 	}
 	
+	var potenciaMaxima;
 	function jugarDeFormaAutomatica(){
-		var potenciaMaxima;
 		if(!$JuegoService.haTerminado($scope.rejillaPrincipal) && $scope.procesando){
 			$scope.movimiento = $ExpectiMaxService.expectiMax('juegoPrueba', $scope.rejillaPrincipal, parseInt($scope.configuracion.nivelProfundidad), 10, 'MAX', true, parseInt($scope.configuracion.tipoHeuristica));
 			$scope.rejillaPrincipal = $JuegoService.realizarMovimiento($scope.movimiento.movimientoAdecuado, $scope.rejillaPrincipal, true, 'real');
@@ -238,7 +238,8 @@ angular.module('2048Simulator')
 					$EstadisticosService.incrementarTotalPartidasGanadas('heuristica'+heuristica, 'profundidad'+nivelProfundidad);
 					//Guardamos la informacion capturada de la partida
 					$scope.partida.partidaGanada = true;
-					$EstadisticosService.guardarPartida($scope.partida);
+					//$EstadisticosService.guardarPartida($scope.partida);
+					$EstadisticosService.sincronizarCambios();
 				}
 				else{
 					if($scope.procesando){
@@ -254,7 +255,8 @@ angular.module('2048Simulator')
 
 						//Guardamos la informacion capturada de la partida
 						$scope.partida.partidaGanada = false;
-						$EstadisticosService.guardarPartida($scope.partida);
+						$EstadisticosService.sincronizarCambios();
+						//$EstadisticosService.guardarPartida($scope.partida);
 					}
 					else
 						toastr.info('Se ha detenido la partida', 'Partida detenida');
@@ -271,16 +273,27 @@ angular.module('2048Simulator')
 		$location.path(path);
 	}
 
+	$scope.abrirModalInformacion = function(){
+		$('#modalInformacion').modal('show');
+	}
+
+	var promedioTiempo = 0;
+	var cantidadCiclos = 0;
+	var tiempoInicial = 0;
+	var tiempoFinal = 0;
 	$scope.correrEnConsola = function(){
 		var cantidadPartidas = 1;
-		while(cantidadPartidas <= 10){
+		tiempoInicial = (new Date()).getTime();
+		while(cantidadPartidas <= 1){
 			$scope.generarTablero();
 			console.clear();
 			var celdaMaxima
 			//Elegimos la heuristica y el nivel de profundidad
 			$scope.configuracion.tipoHeuristica = (Math.floor(Math.random() * (5 - 1) + 1));
-			$scope.configuracion.nivelProfundidad = 5;
+			$scope.configuracion.nivelProfundidad = 7;
 			while(!$JuegoService.haTerminado($scope.rejillaPrincipal)){
+				var t1 = (new Date()).getTime();
+				cantidadCiclos++;
 				$scope.movimiento = $ExpectiMaxService.expectiMax('juegoPrueba', $scope.rejillaPrincipal, parseInt($scope.configuracion.nivelProfundidad), 10, 'MAX', true, parseInt($scope.configuracion.tipoHeuristica));
 				$scope.rejillaPrincipal = $JuegoService.realizarMovimiento($scope.movimiento.movimientoAdecuado, $scope.rejillaPrincipal, true, 'real');
 				if($TableroService.obtenerCantidadCeldasVacias($scope.rejillaPrincipal) != 0)
@@ -288,7 +301,11 @@ angular.module('2048Simulator')
 				actualizarDatosPartida($scope.movimiento.movimientoAdecuado);
 				celdaMaxima = $TableroService.obtenerCeldaMaxima($scope.rejillaPrincipal);
 				detectarAparicionesImportantesPotencias(celdaMaxima, $scope.partida.totalMovimientos);
-				console.log('Partida: '+cantidadPartidas+' heur: '+$scope.configuracion.tipoHeuristica+' profun '+$scope.configuracion.nivelProfundidad+' celdamax: '+celdaMaxima+' estado: '+$scope.partida.totalMovimientos+' movimiento: '+$scope.movimiento.movimientoAdecuado);
+				var t2 = (new Date()).getTime();
+				console.log('Partida: '+cantidadPartidas+' heur: '+$scope.configuracion.tipoHeuristica+' profun '+$scope.configuracion.nivelProfundidad+' celdamax: '+celdaMaxima+' estado: '+$scope.partida.totalMovimientos+' movimiento: '+$scope.movimiento.movimientoAdecuado+' tiempo: '+(t2-t1));
+
+				if(cantidadCiclos == 50)
+					break;
 			}
 
 			var heuristica = parseInt($scope.configuracion.tipoHeuristica);
@@ -308,7 +325,7 @@ angular.module('2048Simulator')
 				$EstadisticosService.incrementarTotalPartidasGanadas('heuristica'+heuristica, 'profundidad'+nivelProfundidad);
 				//Guardamos la informacion capturada de la partida
 				$scope.partida.partidaGanada = true;
-				$EstadisticosService.guardarPartida($scope.partida);
+				//$EstadisticosService.guardarPartida($scope.partida);
 			}
 			else{
 				//Procesamos el estadistico obtenido
@@ -322,12 +339,16 @@ angular.module('2048Simulator')
 
 				//Guardamos la informacion capturada de la partida
 				$scope.partida.partidaGanada = false;
-				$EstadisticosService.guardarPartida($scope.partida);
+				//$EstadisticosService.guardarPartida($scope.partida);
 			}
 			$scope.movimiento = { movimientoAdecuado: null, estadisticos: [0,0,0,0]};
 			$scope.limpiarTablero();
 			cantidadPartidas++;
 		}
-
+		tiempoFinal = (new Date()).getTime();
+		console.log('Tiempo total = '+(tiempoFinal - tiempoInicial));
+		promedioTiempo = (tiempoFinal - tiempoInicial)/cantidadCiclos;
+		console.log('Tiempo promedio por ciclo: '+promedioTiempo);
+		$EstadisticosService.sincronizarCambios();
 	}
 }])

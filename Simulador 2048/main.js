@@ -67,9 +67,6 @@ const template = [
     submenu: [
       {
         role: 'reload'
-      },
-      {
-        role: 'toggledevtools'
       }
     ]
   }

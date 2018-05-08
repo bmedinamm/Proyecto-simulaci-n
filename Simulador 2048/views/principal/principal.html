@@ -23,7 +23,7 @@
 			  Expecti Max
 			  <small class="subtitulo-item-menu">Modo inteligente</small>
 			</button><br>
-			<button  ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
+			<button ng-click="abrirModalInformacion()" ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
 			  Información
 			  <small class="subtitulo-item-menu">Conceptos teóricos</small>
@@ -33,7 +33,7 @@
 			  Configuración
 			  <small class="subtitulo-item-menu">Cambiar propiedades</small>
 			</button><br>
-			<button ng-click="correrEnConsola()" ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
+			<button ng-if="false" ng-click="correrEnConsola()" ng-disabled="procesando" type="button" class="btn btn-default btn-lg item-menu">
 			  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
 			  Correr
 			  <small class="subtitulo-item-menu">En consola</small>
@@ -42,7 +42,7 @@
 		<div class="col-md-8" ui-view>
 			<center>
 				<h3 class="titulo-principal">Universidad Nacional Autónoma de Honduras</h3>
-				<h4>Facultad de Ingenieria en Sístemas</h4>
+				<h4>Facultad de Ingeniería en Sístemas</h4>
 			</center>
 			<hr>
 			<div class="row">
@@ -193,18 +193,146 @@
 				<div class="form-group">
 			  <label for="sel1">Nivel de profundidad</label>
 			  <select ng-model="configuracion.nivelProfundidad" class="form-control" id="sel1">
-			    <option value="1">Nivel 1</option>
-			    <option value="2">Nivel 2</option>
-			    <option value="3">Nivel 3</option>
-			    <option value="4">Nivel 4</option>
-			    <option value="5">Nivel 5 (100 Milisegundos)</option>
-			    <option value="6">Nivel 6</option>
-			    <option value="7">Nivel 7</option>
-			    <option value="8">Nivel 8</option>
-			    <option value="9">Nivel 9</option>
+			    <option value="1">Nivel 1 (5 Milisegundos)</option>
+			    <option value="2">Nivel 2 (10 Milisegundos)</option>
+			    <option value="3">Nivel 3 (15 Milisegundos)</option>
+			    <option value="4">Nivel 4 (20 Milisegundos)</option>
+			    <option value="5">Nivel 5 (50 Milisegundos)</option>
+			    <option value="6">Nivel 6 (1 Segundo)</option>
+			    <option value="7">Nivel 7 (4 Segundo)</option>
 			  </select>
 			</div>
 			</div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalInformacion" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Información</h4>
+      </div>
+      <div class="modal-body">
+		<ul class="nav nav-tabs">
+		  <li class="active"><a data-toggle="tab" href="#home">Teoría de juegos</a></li>
+		  <li><a data-toggle="tab" href="#menu1">Algoritmos Expectimax</a></li>
+		  <li><a data-toggle="tab" href="#menu2">Heurísticas</a></li>
+		  <li><a data-toggle="tab" href="#menu3">Autores</a></li>
+		</ul>
+
+		<div class="tab-content">
+		  <div style="margin: 15px" id="home" class="tab-pane fade in active"><br>
+		  	<h4>Teoría de juegos</h4>
+		    <p>Muchos problemas pueden ser resueltos mediante procesos algorítmicos.
+			Para ello tenemos que modelar los distintos estados posibles del problema, de manera
+			que el propósito será alcanzar un estado objetivo partiendo de un estado inicial
+			aplicando unas reglas entre estados, también llamadas movimientos en el caso de los
+			juegos.</p>
+			<p>Por tanto, para definir formalmente un juego debemos definir:</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-stop"></i><strong> Conjunto de estados</strong>: distintas situaciones del problema. Normalmente existirá un estado inicial, y uno o varios estados objetivo. </p>
+			<p class="txt-left"><i class="glyphicon glyphicon-stop"></i><strong> Movimientos</strong>: son reglas que modifican los estados, es decir, permiten pasar de
+			un estado a otro</p>
+			<p>Necesitaremos también definir un test terminal y una función utilidad:</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-stop"></i><strong> Test terminal</strong> determina cuándo termina el juego. A los estados donde el juego
+			ha terminado se les llama estados terminales. Habitualmente un estado será
+			terminal si es un estado objetivo o si no existen reglas aplicables</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-stop"></i><strong> Función utilidad</strong>: da un valor numérico a los estados terminales</p>
+		  </div>
+		  <div style="margin: 15px" id="menu1" class="tab-pane fade">
+		    <br>
+		    <h4>Algoritmo minimax</h4>
+		    <p>El algoritmo minimax es el principal algoritmo de búsqueda entre adversarios. Es el
+			algoritmo más importante ya que, además, los demás suelen ser variaciones u
+			optimizaciones suyas. En teoría de juegos, minimax es un método de decisión para minimizar la pérdida máxima esperada en juegos con adversario. </p>
+			<img class="img-imagen1" src="assets/img/imagen1.jpg"><hr>
+		    <p>Existen juegos que incluyen un elemento aleatorio, juegos estocásticos. Uno de los
+			juegos más comunes de este tipo es el Backgammon, pero también podemos incluir
+			el 2048 en este tipo de juegos.</p>
+			<h4>Algoritmo expectiminimax</h4>
+			<p>El expectiminimax es una variante del algoritmo Minimax. En el Minimax tradicional
+			tenemos nodos “MIN” y nodos “MAX”, mientras que en el expectimax tendremos
+			además nodos “CHANCE”, o “posibilidad”.
+			Dichos nodos “CHANCE” se intercalan con los nodos MIN y MAX. En dichos nodos,
+			en lugar de tomar el máximo o el mínimo de los valores de utilidad de sus hijos, como
+			se hace en el Minimax, se toma una media ponderada de los valores de sus hijos, en
+			la cual los pesos serán las probabilidades de los sucesores.
+			La forma de intercalar dichos nodos depende de cada juego. Cada turno del juego se
+			evalúa como un nodo “MAX”, que representa el turno del jugador, un nodo “MIN”, que
+			representa al adversario, o un nodo “CHANCE”, que representa un jugador o efecto
+			aleatorio.</p>
+		  </div>
+		  <div style="margin: 15px" id="menu2" class="tab-pane fade"><br>
+		    <h4>Heurística o función de evaluación</h4>
+		    <p>La heurística será una función matemática que asocia un valor a cada nodo en función
+			de lo “bueno” o “malo” que sea dicho estado para alcanzar un estado objetivo a partir
+			de él.</p>
+			<h4>Heurísticas para 2048</h4>
+			<p>Para idear las heurísticas podemos utilizar las estrategias que intuitivamente usaría
+			el usuario al jugar al juego. </p>
+			<p class="txt-left"><i class="glyphicon glyphicon-stop"></i><strong> Score (puntuación):</strong> Una forma muy intuitiva de evaluar el estado podría ser la puntuación actual,
+			pues cuando mayor sea más piezas habremos combinado. Sin embargo, no
+			nos vale con combinar casillas sin ninguna estrategia, debemos considerar
+			otras características deseables como las siguientes.</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-stop"></i><strong> Casillas vacías:</strong> Otra medida de interés que nos puede ayudar a determinar cómo de bueno es
+			un estado es el recuento de las casillas libres o vacías. No nos interesa tener
+			pocas casillas vacías, pues en el momento que el tablero se llene y no
+			podamos combinar ninguna casilla perderemos el juego</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-stop"></i><strong> Similitud entre valores vecinos:</strong> También nos interesa que las celdas cercanas tengan valores iguales, o al
+			menos parecidos, para poder combinarlos. Por ello es de interés esta
+			heurística, la cual calcula una media de la diferencia del valor entre las casillas
+			vecinas, tratando de minimizar este recuento ya que nos interesa que la
+			diferencia sea pequeña</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-stop"></i><strong> Monotonía:</strong> Uno de los trucos principales que la mayoría de jugadores sigue al jugar al
+			juego es colocar la casilla con mayor valor en una esquina y, a partir de ella ir
+			decreciendo su valor. Normalmente también evitaremos que las casillas con
+			valores más pequeños queden aisladas. Esta heurística nos permite tender a
+			tener un tablero más organizado. Para ello, sumamos los valores de las casillas
+			del tablero ponderados de la manera siguiente</p>
+			<img class="img-imagen2" src="assets/img/imagen2.jpg">
+			<p class="txt-left"><i class="glyphicon glyphicon-stop"></i><strong> Valor máximo:</strong> Otra simple característica que intuitivamente podemos
+			considerar importante es tener en cuenta el valor máximo, pues cuanto mayor
+			sea más cerca estaremos del objetivo</p><hr>
+			<p>En función a estas características, la aplicación dispondrá de 4 heurísticas en las que
+			éstas se combinan, pues por separado no funcionarán tan bien como unidas.</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-king"></i><strong> Heurística 1 =</strong> Score + Monotonía - Similitud + log(Score)*Celdas vacías</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-king"></i><strong> Heurística 2 =</strong> Monotonía - Similitud + log(Score)*Celdas vacías</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-king"></i><strong> Heurística 3 =</strong> Score - Similitud + log(Score)*Celdas vacías</p>
+			<p class="txt-left"><i class="glyphicon glyphicon-king"></i><strong> Heurística 4 =</strong> Score + (Celdas vacías * log2(max)) + Monotonía</p>
+		  </div>
+		  <div style="margin: 15px" id="menu3" class="tab-pane fade"><br><br>
+		  	<div class="alert" role="alert">
+			 <center>
+			 	<strong>Universidad Nacional Autónoma de Honduras</strong>
+			 	<p>Facultad de ingeniería</p>
+			 	<p>Carrera de Ingeniería en Sistemas</p>
+			 </center><br>
+		  	<div class="row">
+		  		<div class="row">
+		  			<div class="col-md-2"></div>
+		  			<div class="col-md-8">
+				  		<div class="col-md-4">
+				  			<img class="img-autor" src="assets/img/Brayan.jpg">
+				  			<center><small>Brayan Medina</small></center>
+				  		</div>
+				  		<div class="col-md-4">
+				  			<img class="img-autor" src="assets/img/Kevin.jpg">
+				  			<center><small>Kevin J. Oliva</small></center>
+				  		</div>
+				  		<div class="col-md-4">
+				  			<img class="img-autor" src="assets/img/Saul.jpg">
+				  			<center><small>Saul G. Suazo</small></center>
+				  		</div>
+		  			</div>
+		  		</div>
+		  	</div>
+			</div><br><br><br>
+		  </div>
 		</div>
       </div>
     </div>
