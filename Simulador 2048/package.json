@@ -8,8 +8,8 @@
     "pack": "build --dir"
   },
   "build": {
-    "appId": "Gym-Project",
-    "productName": "Gym Project"
+    "appId": "Simulador 2048",
+    "productName": "Simulador 2048"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
