@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>2048 Simulator</title>
     <link rel="stylesheet" type="text/css" href="assets/css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/angular-toastr/dist/angular-toastr.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/angular-toastr.min.css" />
   </head>
   <body ng-class="[{'fondo-principal': mostrarFondoInicio}, {'fondo-estadisticos': !mostrarFondoInicio}]" ng-app="2048Simulator" ui-view>
 
@@ -13,18 +13,16 @@
         if (typeof module === 'object') {window.module = module; module = undefined;}
     </script>
     <!--Importamos las librerias a utilizar-->
-    <script src="node_modules/angular/angular.min.js" type="text/javascript"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
-    <script src="bower_components/thread/thread.js" type="text/javascript"></script>
-    <script src="bower_components/angular-thread/angular-thread.js" type="text/javascript"></script>
-    <script src="node_modules/angular-toastr/dist/angular-toastr.min.js" type="text/javascript"></script>
-    <script src="node_modules/angular-animate/angular-animate.min.js" type="text/javascript"></script>
-    <script src="node_modules/chart.js/dist/Chart.min.js"></script>
-    <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
-    <script src="node_modules/firebase/firebase.js"></script>
-    <script src="node_modules/angularfire/dist/angularfire.min.js"></script>
+    <script src="assets/libs/angular.min.js" type="text/javascript"></script>
+    <script src="assets/libs/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/libs/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/libs/angular-ui-router.min.js" type="text/javascript"></script>
+    <script src="assets/libs/angular-toastr.min.js" type="text/javascript"></script>
+    <script src="assets/libs/angular-animate.min.js" type="text/javascript"></script>
+    <script src="assets/libs/Chart.min.js"></script>
+    <script src="assets/libs/angular-chart.min.js"></script>
+    <script src="assets/libs/firebase.js"></script>
+    <script src="assets/libs/angularfire.min.js"></script>
     <!--Fin de importacion de librerias a utilizar-->
 
     <!--Importamos los controladores y servicios a utilizar-->

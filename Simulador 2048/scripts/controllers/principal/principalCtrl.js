@@ -284,13 +284,13 @@ angular.module('2048Simulator')
 	$scope.correrEnConsola = function(){
 		var cantidadPartidas = 1;
 		tiempoInicial = (new Date()).getTime();
-		while(cantidadPartidas <= 1){
+		while(cantidadPartidas <= 100){
 			$scope.generarTablero();
 			console.clear();
 			var celdaMaxima
 			//Elegimos la heuristica y el nivel de profundidad
-			$scope.configuracion.tipoHeuristica = (Math.floor(Math.random() * (5 - 1) + 1));
-			$scope.configuracion.nivelProfundidad = 7;
+			$scope.configuracion.tipoHeuristica = 4;
+			$scope.configuracion.nivelProfundidad = 5;
 			while(!$JuegoService.haTerminado($scope.rejillaPrincipal)){
 				var t1 = (new Date()).getTime();
 				cantidadCiclos++;
